@@ -13,8 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* all of this is default from vite, will change and add features
-  as we design */
+/* this design is temporary too, will change and add other features */
 
   .app-container {
     display: flex;
