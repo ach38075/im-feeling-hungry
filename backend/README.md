@@ -47,7 +47,7 @@ If you wanna delete all containers created from the image, run `docker stop $(do
 
 If you wanna delete the image, run `docker rmi cs4050-backend`
 
-The container will map 8080 port to your host machine, then you can play around http routes using [Postman](https://www.postman.com/). Import `cs4050-http.postman_collection.json` in your postman to have all collections of http APIs loaded.
+The container will map 8080 port to your host machine, then you can play around available http APIs using [Postman](https://www.postman.com/). Import `cs4050-http.postman_collection.json` in your postman to have all collections of http APIs loaded.
 
 ## Project structure:
 
