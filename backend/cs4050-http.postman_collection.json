@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "46f7b95e-18cc-49b9-967d-2cfc0f4bc612",
+		"name": "cs4050-http",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20365578"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/auth/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzcxMjQsImV4cCI6MTc0MTE0MDcyNH0.HJz-w__gH64cpuS8aYLXTPRXQa3doV0GjFaV9QAdToE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"cs4050@gmail.com\",\n    \"password\":\"cs4050\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/feed/recipes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/feed/recipes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"recipes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "recipeId",
+							"value": "67c7a5956663480020716537",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"recipe",
+						"67c7a5956663480020716537"
+					],
+					"query": [
+						{
+							"key": "recipeId",
+							"value": "67c7a5956663480020716537",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"recipe\": \"buffalo chicken\",\n\"cost\": \"8.5\",\n\"region\": \"usa\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"recipe",
+						"67c7a5956663480020716537"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/feed/recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzk3MzIsImV4cCI6MTc0MTE0MzMzMn0.zfK-QkODxw-8PacICETlTdWDTQ21opu9lBFkYBHn8RQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipe\": \"sushi\",\n    \"cost\": \"15\",\n    \"region\": \"japan\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/feed/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/feed/recipe/67c7af748f9b4200207823fe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzkzNTksImV4cCI6MTc0MTE0Mjk1OX0.SfM1IEpERUywREW3B7xHkea9DJlUnsA9wFhOHRI4NsU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/feed/recipe/67c7af748f9b4200207823fe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"feed",
+						"recipe",
+						"67c7af748f9b4200207823fe"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
