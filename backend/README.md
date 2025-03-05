@@ -16,3 +16,16 @@ Project structure:
 `app.js`: define a route accessed by fronted and correlate it to a route source file in `routes`
 `examples`: get access to backend by postman 
 `cs4050-http.postman_collection.json`: all http APIs for the testing of backend
+
+
+Done:
+- Auth: user + hash(password) in MongoDB
+- Feed: add/find/del/update a recipe 
+
+
+Be aware that if you wanna contribute to backend development, there are a few options:
+- create a new filter option
+- think of what data is stored in MongoDB
+- how to fetch data by Google API
+- ...
+  
