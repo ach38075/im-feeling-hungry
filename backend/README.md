@@ -1,4 +1,4 @@
-## Refresher
+## Intro
 
 Run `build_local.sh` to build a docker image and spin it up as a container. Note that `chmod +x build_local.sh` in case you cannot execute it.
 
