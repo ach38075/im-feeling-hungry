@@ -1,10 +1,12 @@
 import React from "react";
 
-const RecipeCard = ({recipe}) => {
+const RecipeCard = ({recipe,missing}) => {
     return (
-        <div>
-            {/* guts of recipe go here-- title, image, details etc,
-            also will want to add missing ingredient info */} 
+        <div className="recipe-card">
+            <h2> {recipe.title} </h2>
+            <img src={recipe.image} alt={recipe.title} />
+            {missing.length > 0 && <p>Missing ingredients: {missing.join(", ")}</p>}
+            <a href={recipe.sourceURL} target="_blank" rel="noopner noreferrer">View Recipe</a>
         </div>
     );
 };

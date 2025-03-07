@@ -1,10 +1,12 @@
 import React from "react";
 import RecipeCard from "./RecipeCard";
 
-const RecipeList = ({recipes}) => {
+const RecipeList = ({recipes, missingIngredients}) => {
     return (
         <div>
-            {/* RecipeList will contain how ever many recipes we want to suggest RecipeCards*/}
+            {recipes.map((recipe) => (
+             <RecipeCard key={recipe.id} recipe={recipe} missing={missingIngredients[recipe.id] || []} />
+            ))}
         </div>
     );
 };
