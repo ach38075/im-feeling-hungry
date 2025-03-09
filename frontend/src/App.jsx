@@ -5,6 +5,7 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import Filters from "./components/Filters";
 import { getRecipes } from "./api";
+import RecipePreview from "./components/RecipePreview";
 
 function App() {
   const [ingredients, setIngredients] = useState("");

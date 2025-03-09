@@ -1,0 +1,31 @@
+.card {
+    
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: black;
+    padding: 15px 15px 15px;
+    button {
+        margin-top: 15px;
+    }
+    
+    .info {
+    
+        line-height: 0.05;
+
+        hr {
+            border-top: 1px solid black;
+        }
+        h2 {
+            color: rgb(205, 18, 86);
+            padding-top: 20px;
+        }
+        h6 {
+            padding-right: 20px;
+        }
+        h5 {
+            text-align: left;
+        }
+    }
+}
