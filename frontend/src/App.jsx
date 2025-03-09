@@ -3,6 +3,7 @@ import './index.css'
 import './App.css'
 import RecipeList from "./components/RecipeList";
 import Filters from "./components/Filters";
+import RecipePreview from "./components/RecipePreview";
 
 function App() {
   const [ingredients, setIngredients] = useState("");
@@ -21,7 +22,7 @@ function App() {
 
     <div className="app-container">
       <h1>i'm feeling hungry...</h1>
-
+       
       <div className="filters-row">
       <input
         type="text"
@@ -43,7 +44,9 @@ function App() {
       />
        </div>
       <button onClick = {handleButtonClick}>generate recipes</button>
-        
+
+      <RecipePreview /> 
+
     </div>
   );
 };
