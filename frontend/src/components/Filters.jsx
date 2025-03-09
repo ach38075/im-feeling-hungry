@@ -1,7 +1,7 @@
 import React from "react";
 
 const Filters = ({filters, setFilters}) => {
-    const applianceOptions = ["Oven", "Microwave", "Stovetop", "Air Fryer", "Slow Cooker"];
+    const applianceOptions = ["oven", "microwave", "stove", "airfryer", "slow cooker"];
     const dietOptions = ["Vegetarian", "Vegan", "Pescetarian", "Gluten-Free", "Dairy-Free", "High Protein"];
     
     const handleApplianceChange = (e) => {
@@ -15,27 +15,48 @@ const Filters = ({filters, setFilters}) => {
     };
 
     return (
-        <div>
-            <input
-                type="number"
-                placeholder="Max Cook Time (minutes)"
-                value={filters.cookTime}
-                onChange={(e) => setFilters({ ...filters, cookTime: e.target.value })}
-             />
-            <label>Cooking Appliances:</label>
-            <select multiple value={filters.appliances} onChange={handleApplianceChange}>
-                {applianceOptions.map((appliance) => (
-                    <option key={appliance} value={appliance}>{appliance}</option>
-                ))}
-            </select>
-            <label>Dietary Restrictions:</label>
-            <select multiple value={filters.diet} onChange={handleDietChange}>
-                <option value="">NONE</option>
-                {dietOptions.map((diet) => (
-                    <option key={diet} value={diet}>{diet}</option>
-                ))}
-        </select> 
-      </div>
+        <div className="filters-container">
+            <div className="filter-group">
+                <label htmlFor="cookTime">Max Cook Time (minutes):</label>
+                <input
+                    id="cookTime"
+                    type="number"
+                    placeholder="Max Cook Time (minutes)"
+                    value={filters.cookTime}
+                    onChange={(e) => setFilters({ ...filters, cookTime: e.target.value })}
+                />
+            </div>
+            
+            <div className="filter-group">
+                <label htmlFor="appliances">Cooking Appliances:</label>
+                <select 
+                    id="appliances"
+                    multiple 
+                    value={filters.appliances} 
+                    onChange={handleApplianceChange}
+                >
+                    {applianceOptions.map((appliance) => (
+                        <option key={appliance} value={appliance}>{appliance}</option>
+                    ))}
+                </select>
+                <small>(Hold Ctrl/Cmd to select multiple)</small>
+            </div>
+            
+            <div className="filter-group">
+                <label htmlFor="diet">Dietary Restrictions:</label>
+                <select 
+                    id="diet"
+                    multiple 
+                    value={filters.diet} 
+                    onChange={handleDietChange}
+                >
+                    {dietOptions.map((diet) => (
+                        <option key={diet} value={diet}>{diet}</option>
+                    ))}
+                </select>
+                <small>(Hold Ctrl/Cmd to select multiple)</small>
+            </div>
+        </div>
     );
 };
 

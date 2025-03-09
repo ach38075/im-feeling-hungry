@@ -1,11 +1,11 @@
-const API_KEY = "0eb27123386c42b19046163250ba48aa";
-const API_URL = "https://api.spoonacular.com/recipes/complexSearch";
+const API_KEY = "59b4fe15ba9b4fec86b5be4313200724";
+const API_URL = "https://api.spoonacular.com/recipes";
 
 export const getRecipes = async (ingredients, filters) => {
-    const ingredientList = ingredients.split(",").map((i)=> i.trim()).join(",");
+    const ingredientList = ingredients.split(",").map((i) => i.trim()).join(",");
     const applianceList = filters.appliances.join(",");
     const dietList = filters.diet.join(",");
-    const url = `${API_URL}?includeIngredients=${ingredientList}&number=3&maxReadyTime=${filters.cookTime}&diet=${dietList}&equipment=${applianceList}&apiKey=${API_KEY}`;
+    const url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=3&maxReadyTime=${filters.cookTime}&diet=${dietList}&equipment=${applianceList}&apiKey=${API_KEY}`;
     
     const response = await fetch(url);
     const info = await response.json();
@@ -16,12 +16,44 @@ export const getRecipes = async (ingredients, filters) => {
             id: recipe.id,
             title: recipe.title,
             image: recipe.image,
-            sourceUrl: `https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}`, missing
+            sourceUrl: `https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}`, 
+            missing
         };
     });
+    
     const missingIngredients = results.reduce((acc, recipe) => {
         acc[recipe.id] = recipe.missing;
         return acc;
     }, {});
+    
     return {results, missing: missingIngredients};
-}
+};
+
+export const getRecipeDetails = async (recipeId) => {
+    const url = `${API_URL}/${recipeId}/information?includeNutrition=false&apiKey=${API_KEY}`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    return {
+        id: data.id,
+        title: data.title,
+        image: data.image,
+        sourceUrl: data.sourceUrl,
+        readyInMinutes: data.readyInMinutes,
+        servings: data.servings,
+        ingredients: data.extendedIngredients.map(ing => ({
+            id: ing.id,
+            name: ing.original,
+            amount: ing.amount,
+            unit: ing.unit
+        })),
+        instructions: data.analyzedInstructions.length > 0 
+            ? data.analyzedInstructions[0].steps.map(step => ({
+                number: step.number,
+                step: step.step
+            })) 
+            : [],
+        summary: data.summary
+    };
+};
