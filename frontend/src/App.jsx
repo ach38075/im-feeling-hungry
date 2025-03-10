@@ -15,7 +15,6 @@ function App() {
     diet: []         
   });
   const [recipes, setRecipes] = useState([]);
-  const [missingIngredients, setMissingIngredients] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
@@ -29,9 +28,8 @@ function App() {
     try {
       setLoading(true);
       setError(null);
-      const { results, missing } = await getRecipes(ingredients, filters);
+      const { results } = await getRecipes(ingredients, filters);
       setRecipes(results);
-      setMissingIngredients(missing);
       setSelectedRecipeId(null); // Reset selected recipe when searching
       
       if (results.length === 0) {
@@ -80,7 +78,6 @@ function App() {
           ) : (
             <RecipeList 
               recipes={recipes} 
-              missingIngredients={missingIngredients}
               onViewDetails={handleViewDetails}
             />
           )}

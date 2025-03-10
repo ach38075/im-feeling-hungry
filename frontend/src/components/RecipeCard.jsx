@@ -1,11 +1,10 @@
 import React from "react";
 
-const RecipeCard = ({ recipe, missing, onViewDetails }) => {
+const RecipeCard = ({ recipe, onViewDetails }) => {
     return (
         <div className="recipe-card">
             <h2>{recipe.title}</h2>
             <img src={recipe.image} alt={recipe.title} />
-            {missing.length > 0 && <p>Missing ingredients: {missing.join(", ")}</p>}
             
             <div className="recipe-card-actions">
                 <button 
