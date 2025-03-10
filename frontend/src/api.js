@@ -11,22 +11,15 @@ export const getRecipes = async (ingredients, filters) => {
     const info = await response.json();
     
     const results = info.results.map(recipe => {
-        const missing = recipe.missedIngredients ? recipe.missedIngredients.map(ing => ing.name) : [];
         return {
             id: recipe.id,
             title: recipe.title,
             image: recipe.image,
-            sourceUrl: `https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}`, 
-            missing
+            sourceUrl: `https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}`
         };
     });
     
-    const missingIngredients = results.reduce((acc, recipe) => {
-        acc[recipe.id] = recipe.missing;
-        return acc;
-    }, {});
-    
-    return {results, missing: missingIngredients};
+    return {results};
 };
 
 export const getRecipeDetails = async (recipeId) => {
