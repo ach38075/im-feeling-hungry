@@ -5,6 +5,7 @@ import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
 import Filters from "./components/Filters";
 import { getRecipes } from "./api";
+import Disk from "./components/Disk";
 import RecipePreview from "./components/RecipePreview";
 
 function App() {
@@ -55,6 +56,8 @@ function App() {
     <div className="app-container">
       <h1>i'm feeling hungry...</h1>
       
+      <Disk />
+
       {!selectedRecipeId ? (
         <>
           <div className="search-container">
