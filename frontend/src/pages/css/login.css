@@ -1,0 +1,86 @@
+/* Login.css */
+
+.container form {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  background-color: white;
+  color: black;
+}
+
+.container h1, .registerLink, .btn {
+  /* font-family: "Roboto", sans-serif; */
+  line-height: normal;
+  text-align: center;
+  color: black;
+}
+
+.container h1 {
+  font-size: 3em;
+  margin-bottom: 1.5rem;
+  color: black;
+}
+
+.container h4 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-weight: 500;
+}
+
+.inputBox {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.inputBox label{
+  display: block;
+  text-align: left;
+  padding: 3px;
+  padding-left: 2.2em;
+}
+
+.inputBox input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background: #f7e1ea;
+  color: black;
+}
+
+
+.forgotPassword {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin-left: 2.1em;
+}
+
+.registerLink {
+  color: #000;
+  margin-top: 2em;
+}
+
+.registerLink a{
+  color: #3167FB;
+  text-decoration-line: underline;
+}
+
+.rememberForgot a {
+  color: #26a3dd;
+  text-decoration-line: underline;
+}
+
+.btn {
+  background-color: #5bf181;
+  border-radius: 6px;
+  margin-top: 2em;
+  font-size: 1.25em;
+  padding: 0.5em 2em 0.6em 2em;
+  color: black;
+  font-weight: 600;
+}
