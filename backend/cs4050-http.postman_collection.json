@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "46f7b95e-18cc-49b9-967d-2cfc0f4bc612",
+		"_postman_id": "b5092a8f-3b6d-42d4-af29-0192d6194668",
 		"name": "cs4050-http",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20365578"
@@ -225,6 +225,37 @@
 						"feed",
 						"recipe",
 						"67c7af748f9b4200207823fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/auth/signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"cs40501@gmail.com\",\n    \"name\": \"tesssss\",\n    \"password\":\"cs4050\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
 					]
 				}
 			},
