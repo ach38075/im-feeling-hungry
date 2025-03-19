@@ -41,20 +41,23 @@ export function Login() {
             <h4>Welcome back!</h4>
 
             <div className={"inputBox"}>
-              <label htmlFor="email">Email</label>
+              <label for="email">Email</label>
               <input 
+                id="email"
                 type="email" 
                 placeholder="Email" 
                 required 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                autoComplete="on"
                 />
               <i className="bx bx-user"></i>
             </div>
 
             <div className={"inputBox"}>
-              <label htmlFor="password">Password</label>
+              <label for="password">Password</label>
               <input 
+                id="password"
                 type="password" 
                 placeholder="Password" 
                 required 
