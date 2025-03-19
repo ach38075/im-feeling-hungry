@@ -3,10 +3,6 @@
 import React from "react";
 import './css/login.css'
 import { useState } from "react";
-/*
-import { doCredentialLogin } from "../api/auth";
-import { signIn, signOut } from "@/auth";
-*/
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
@@ -47,43 +43,43 @@ export function Signup () {
                 <h4>Sign up to save all of your favorite recipes!</h4>
                 
                 <div className={"inputBox"}>
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input 
-                    id="email" 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    required 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    autoComplete="on"
+                      id="email" 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      required 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      autoComplete="on"
                     />
                     <i className='bx bx-user'></i>
                 </div>
 
                 <div className={"inputBox"}>
-                    <label for="username">Username</label>
+                    <label htmlFor="username">Username</label>
                     <input 
-                    id="username" 
-                    type="text" 
-                    placeholder="Enter a username" 
-                    required 
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    autoComplete="on"
+                      id="username" 
+                      type="text" 
+                      placeholder="Enter a username" 
+                      required 
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      autoComplete="on"
                     />
                     <i className='bx bx-user'></i>
                 </div>
                 
                 <div className={"inputBox"}>
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input  
-                    id="password" 
-                    type="password" 
-                    placeholder="Enter your password" 
-                    required 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="on"
+                      id="password" 
+                      type="password" 
+                      placeholder="Enter your password" 
+                      required 
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete="on"
                     />
                     <i className='bx bxs-lock-alt'></i>
                 </div>
