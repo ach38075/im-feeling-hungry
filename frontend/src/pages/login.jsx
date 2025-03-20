@@ -29,7 +29,8 @@ export function Login() {
       localStorage.setItem("token", data.token); // Store JWT token
       alert("Login successful!");
     } catch (err) {
-      setError(err.message);
+        setError(err.message);
+        alert(err.message);
     }
   };
 
