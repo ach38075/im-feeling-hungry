@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "backend": "cd ../backend && build_local.sh",
+    "backend": "cd ../backend && npm start",
     "frontend": "npm run dev"
   },
   "dependencies": {

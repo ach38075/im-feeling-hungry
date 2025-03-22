@@ -48,6 +48,8 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(
     `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.3hiee.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
+    // if you get the error 'bad auth : Authentication failed', replace the above line with the following:
+    // `mongodb+srv://cs4050-project:LBVL3KUfVmIe8BnJ@cluster0.3hiee.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
