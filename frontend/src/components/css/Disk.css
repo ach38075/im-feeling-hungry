@@ -1,0 +1,27 @@
+.plate {
+    width: 600px;
+    height: 200px;
+    position: relative;
+    background-color: #ed1000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    
+    .middle {
+        width: 320px;
+        height: 90px;
+        background-color: #ba0c00;
+        border-radius: 50%;
+        position: relative;
+        justify-content: center;
+        bottom: 20px;
+
+        .card1 {
+            position: relative;
+            display: flex;
+            bottom: 1000px;
+        }
+    }
+}
