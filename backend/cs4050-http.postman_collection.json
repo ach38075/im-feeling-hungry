@@ -23,7 +23,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"cs4050@gmail.com\",\n    \"password\":\"cs4050\"\n}",
+					"raw": "{\n    \"email\":\"cs40501@gmail.com\",\n    \"name\": \"tesssss\",\n    \"password\":\"cs4050\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -52,7 +52,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzczOTM3LCJleHAiOjE3NDI3Nzc1Mzd9.br9PVDR7yyOx4WapsW0kgrbLIJWcp6cQyvu3D9c2W_M",
 							"type": "string"
 						}
 					]
@@ -84,7 +84,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzczOTM3LCJleHAiOjE3NDI3Nzc1Mzd9.br9PVDR7yyOx4WapsW0kgrbLIJWcp6cQyvu3D9c2W_M",
 							"type": "string"
 						}
 					]
@@ -102,7 +102,7 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+					"raw": "localhost:8080/feed/recipe/67e0a9f1f215ed0020cddc9c",
 					"host": [
 						"localhost"
 					],
@@ -110,7 +110,7 @@
 					"path": [
 						"feed",
 						"recipe",
-						"67c7a5956663480020716537"
+						"67e0a9f1f215ed0020cddc9c"
 					],
 					"query": [
 						{
@@ -131,7 +131,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzgyOTksImV4cCI6MTc0MTE0MTg5OX0.7Bm3cA6kXXdRGuAv5_QqEraKJLnXQW94N1P3KwYOh9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzczOTM3LCJleHAiOjE3NDI3Nzc1Mzd9.br9PVDR7yyOx4WapsW0kgrbLIJWcp6cQyvu3D9c2W_M",
 							"type": "string"
 						}
 					]
@@ -140,7 +140,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"recipe\": \"buffalo chicken\",\n\"cost\": \"8.5\",\n\"region\": \"usa\"\n\n}",
+					"raw": "{\n\"recipeNum\": \"recipemaster.com#122345\",\n\"recipe\": \"buffalo chicken\",\n\"cost\": 8.5,\n\"region\": \"usa\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -148,7 +148,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/feed/recipe/67c7a5956663480020716537",
+					"raw": "localhost:8080/feed/recipe/67e0a9f1f215ed0020cddc9c",
 					"host": [
 						"localhost"
 					],
@@ -156,7 +156,7 @@
 					"path": [
 						"feed",
 						"recipe",
-						"67c7a5956663480020716537"
+						"67e0a9f1f215ed0020cddc9c"
 					]
 				}
 			},
@@ -170,7 +170,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MEBnbWFpbC5jb20iLCJ1c2VySWQiOiI2N2M3YTQ4NDY2NjM0ODAwMjA3MTY1MzMiLCJpYXQiOjE3NDExMzk3MzIsImV4cCI6MTc0MTE0MzMzMn0.zfK-QkODxw-8PacICETlTdWDTQ21opu9lBFkYBHn8RQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzczOTM3LCJleHAiOjE3NDI3Nzc1Mzd9.br9PVDR7yyOx4WapsW0kgrbLIJWcp6cQyvu3D9c2W_M",
 							"type": "string"
 						}
 					]
@@ -179,7 +179,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"recipe\": \"sushi\",\n    \"cost\": \"15\",\n    \"region\": \"japan\"}",
+					"raw": "{\n    \"recipeNum\": \"recipemaster.com#122\",\n    \"recipe\": \"sushi\",\n    \"cost\": 15,\n    \"region\": \"japan\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -256,6 +256,64 @@
 					"path": [
 						"auth",
 						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/auth/status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzczOTM3LCJleHAiOjE3NDI3Nzc1Mzd9.br9PVDR7yyOx4WapsW0kgrbLIJWcp6cQyvu3D9c2W_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/auth/status",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/auth/logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNzNDA1MDFAZ21haWwuY29tIiwidXNlcklkIjoiNjdlMDk4YjllNTY0N2IwMDIwOTBmYjhjIiwiaWF0IjoxNzQyNzcyNDUxLCJleHAiOjE3NDI3NzYwNTF9.EWzcrEQZZdqLxxytA5pEcQqXv9p_SNfTdAmrp_Gf98U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/auth/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"logout"
 					]
 				}
 			},

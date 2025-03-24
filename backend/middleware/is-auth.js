@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+const User = require('../models/user');
+
 module.exports = (req, res, next) => {
   const authHeader = req.get('Authorization');
   if (!authHeader) {
@@ -21,5 +23,27 @@ module.exports = (req, res, next) => {
     throw error;
   }
   req.userId = decodedToken.userId;
+  User.findById(req.userId)
+      .then(user => {
+        if (!user) {
+          const error = new Error('User not found or automatic logout due to timeout');
+          error.statusCode = 404;
+          throw error;
+        }
+
+        if(user.auth == 0) {
+          const error = new Error('Login is required');
+          error.statusCode = 404;
+          throw error;
+        }
+
+      })
+      .catch(err => {
+        if (!err.statusCode) {
+          err.statusCode = 500;
+        }
+        next(err);
+      });
+
   next();
 };
