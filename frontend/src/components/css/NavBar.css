@@ -2,3 +2,13 @@
     margin: auto;
     padding-bottom: 2em;
 }
+
+.user_greeting {
+    display: inline;
+    margin: 1em;
+}
+
+.user_display {
+    display: inline;
+    margin-left: 5em;
+}

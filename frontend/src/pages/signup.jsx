@@ -36,8 +36,7 @@ export function Signup () {
     };
 
   return (
-    <div>
-        <div className={"container"}>
+    <div className={"container"}>
             <form onSubmit={handleSignup}>
                 <h1 className={"header"}>i'm feeling hungry...</h1>
                 <h4>Sign up to save all of your favorite recipes!</h4>
@@ -90,8 +89,6 @@ export function Signup () {
                     Already have an account?  <Link to="/login">Log in</Link>
                 </p>
             </form>
-        </div>
     </div>
-    
   );
 };
