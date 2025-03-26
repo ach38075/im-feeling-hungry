@@ -4,12 +4,14 @@ import React from "react";
 import './css/login.css'
 import { useState } from "react";
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -27,7 +29,9 @@ export function Login() {
       }
 
       localStorage.setItem("token", data.token); // Store JWT token
+      localStorage.setItem('username', data.name); // Store username
       alert("Login successful!");
+      setTimeout(() => navigate("/"), 100); // redirect to home page
     } catch (err) {
         setError(err.message);
         alert(err.message);
@@ -35,7 +39,6 @@ export function Login() {
   };
 
   return (
-    <div>
       <div className={"container"}>
         <form onSubmit={handleLogin}>
           <h1 className={"header"}>i'm feeling hungry...</h1>
@@ -81,6 +84,5 @@ export function Login() {
             </p>
         </form>
       </div>
-    </div>
   );
 };
