@@ -7,13 +7,19 @@ import { RefreshContext } from '../context/RefreshContext';
 export function NavBar() {
     const [username, setUsername] = useState('');
     const { refresh } = useContext(RefreshContext);
+    const [loginVisible, setLoginVisible] = useState(true);
+    const [logoutVisible, setLogoutVisible] = useState(false);
 
     useEffect(() => {
       const storedUsername = localStorage.getItem('username');
-      if (storedUsername) {
-        setUsername(storedUsername);
+      if (storedUsername) {                 // if user is logged in
+            setUsername(storedUsername);
+            setLogoutVisible(true);         // display username and Logout button
+            setLoginVisible(false);         // hide Login button
       } else {
-        setUsername('');
+            setUsername('');                // user not logged in
+            setLogoutVisible(false);        // hide Logout button
+            setLoginVisible(true);          // show Login button
       }
     }, [refresh]);
 
@@ -23,16 +29,20 @@ export function NavBar() {
                 <button>Home</button>
             </Link>
             <Link to="/login">
-                <button>Login</button>
+                {loginVisible && (
+                    <button>Login</button>
+                )}
             </Link>
-            <div className='user_display'>
-                <h4 className ='user_greeting'>
-                    {username ? 'Welcome back, ' + username : ''}
-                </h4>
-                <Link to="/login">
-                    <LogoutButton />
-                </Link>
-            </div>
+            {logoutVisible && (
+                <div className='user_display'>
+                    <h4 className ='user_greeting'>
+                        {username ? 'Welcome back, ' + username : ''}
+                    </h4>
+                    <Link to="/login">
+                        <LogoutButton />
+                    </Link>
+                </div>
+            )}
             
         </div>
     )
