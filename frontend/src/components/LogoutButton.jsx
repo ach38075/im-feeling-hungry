@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import { RefreshContext } from '../context/RefreshContext';
 
 export function LogoutButton() {
     const navigate = useNavigate(); 
+    const { setRefresh } = useContext(RefreshContext);
 
     const handleLogout = async () => {
         const token = localStorage.getItem('token'); // Retrieve token from local storage
@@ -18,6 +20,7 @@ export function LogoutButton() {
         if (response.ok) {
             localStorage.removeItem('token'); // Remove token from local storage
             localStorage.removeItem('username'); // Remove token from local storage
+            setRefresh(prev => !prev);
             alert("Logout successful!");
             setTimeout(() => navigate("/login"), 100); // redirect to login page
         } else {

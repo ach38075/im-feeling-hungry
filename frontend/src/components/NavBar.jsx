@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom"
 import './css/NavBar.css'
 import { LogoutButton } from './LogoutButton'
+import { RefreshContext } from '../context/RefreshContext';
 
 export function NavBar() {
     const [username, setUsername] = useState('');
+    const { refresh } = useContext(RefreshContext);
 
     useEffect(() => {
       const storedUsername = localStorage.getItem('username');
       if (storedUsername) {
         setUsername(storedUsername);
+      } else {
+        setUsername('');
       }
-    }, []);
+    }, [refresh]);
 
     return (
         <div className="container">

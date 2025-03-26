@@ -1,10 +1,10 @@
 'use client';
 
-import React from "react";
+import React, { useState, useContext } from "react";
 import './css/login.css'
-import { useState } from "react";
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { RefreshContext } from '../context/RefreshContext';
 
 
 export function Login() {
@@ -12,6 +12,7 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate(); 
+  const { setRefresh } = useContext(RefreshContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ export function Login() {
 
       localStorage.setItem("token", data.token); // Store JWT token
       localStorage.setItem('username', data.name); // Store username
+      setRefresh(prev => !prev);
       alert("Login successful!");
       setTimeout(() => navigate("/"), 100); // redirect to home page
     } catch (err) {
@@ -45,7 +47,7 @@ export function Login() {
             <h4>Welcome back!</h4>
 
             <div className={"inputBox"}>
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input 
                 id="email"
                 type="email" 
@@ -59,7 +61,7 @@ export function Login() {
             </div>
 
             <div className={"inputBox"}>
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input 
                 id="password"
                 type="password" 
