@@ -67,7 +67,13 @@ exports.login = (req, res, next) => {
       );
       loadedUser.auth = 1; // logged in
       loadedUser.save();
-      res.status(200).json({ token: token, userId: loadedUser._id.toString() });
+      res.status(200).json(
+        { 
+          token: token, 
+          userId: loadedUser._id.toString(),
+          name: loadedUser.name
+         }
+      );
     })
     .catch(err => {
       if (!err.statusCode) {
