@@ -18,6 +18,10 @@ const userSchema = new Schema({
     type: String,
     default: 'I am new!'
   },
+  auth: {
+    type: Number,
+    default: 0 //inactive
+  },
   recipes: [
     {
       type: Schema.Types.ObjectId,

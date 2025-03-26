@@ -48,4 +48,7 @@ router.patch(
   authController.updateUserStatus
 );
 
+router.post('/logout', authController.logout);
+
+
 module.exports = router;

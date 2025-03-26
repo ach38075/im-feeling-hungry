@@ -3,17 +3,21 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema(
   {
-    recipe: {
+    recipeNum: {
       type: String,
       required: true
     },
-    cost: {
+    recipe: {
       type: String,
-      required: true
+      required: false
+    },
+    cost: {
+      type: Number,
+      required: false
     },
     region: {
       type: String,
-      required: true
+      required: false
     },
     creator: {
       type: Schema.Types.ObjectId,

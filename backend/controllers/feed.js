@@ -35,20 +35,34 @@ exports.getRecipes = (req, res, next) => {
 
 exports.createRecipe = (req, res, next) => {
   const errors = validationResult(req);
+
+  if (!req.body.recipeNum) {
+    const error = new Error('recipeNum must be provided in the request body.');
+    error.statusCode = 401;
+    throw error;
+  }
+
   if (!errors.isEmpty()) {
     const error = new Error('Validation failed, entered data is incorrect.');
     error.statusCode = 422;
     throw error;
   }
 
-  const cost = req.body.cost;
-  const recipe = req.body.recipe;
-  const region = req.body.region;
+  if(!req.body.cost)
+    req.body.cost = 0;
+
+  if(!req.body.recipe)
+    req.body.recipe = '';
+
+  if(!req.body.region)
+    req.body.region = '';
+
   let creator;
   const newRecipe = new Recipe({
-    recipe: recipe,
-    cost: cost,
-    region: region,
+    recipeNum: req.body.recipeNum,
+    recipe: req.body.recipe,
+    cost: req.body.cost,
+    region: req.body.region,
     creator: req.userId
   });
   newRecipe
@@ -103,9 +117,6 @@ exports.updateRecipe = (req, res, next) => {
     error.statusCode = 422;
     throw error;
   }
-  const recipe = req.body.recipe;
-  const cost = req.body.cost;
-  const region = req.body.region;
 
   Recipe.findById(recipeId)
     .then(eachRecipe => {
@@ -119,10 +130,10 @@ exports.updateRecipe = (req, res, next) => {
         error.statusCode = 403;
         throw error;
       }
-
-      eachRecipe.recipe = recipe;
-      eachRecipe.cost = cost;
-      eachRecipe.region = region;
+      eachRecipe.recipeNum = req.body.recipeNum;
+      eachRecipe.recipe = req.body.recipe;
+      eachRecipe.cost = req.body.cost;
+      eachRecipe.region = req.body.region;
       return eachRecipe.save();
     })
     .then(result => {
