@@ -5,7 +5,7 @@ import RecipeList from "../components/RecipeList";
 import RecipeDetails from "../components/RecipeDetails";
 import Filters from "../components/Filters";
 import { getRecipes } from "../api";
-import Disk from "../components/Disk";
+import Disk from "../components/Disk.jsx";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
@@ -92,6 +92,7 @@ export function Home () {
       <h1>i'm feeling hungry...</h1>
       
       {/*<Disk />*/}
+      <Disk />
 
       {!selectedRecipeId ? (
         <>

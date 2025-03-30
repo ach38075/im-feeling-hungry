@@ -1,12 +1,12 @@
 .card {
     
     border: 1px solid #000000;
-    border-radius: 5px;
     background-color: rgb(5, 40, 83);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: black;
-    padding: 10px 10px 10px;
+    width: 75%;
+
     button {
         margin-top: 10px;
     }
@@ -20,11 +20,9 @@
         }
         h2 {
             color: rgb(205, 18, 86);
-            padding-top: 15px;
+            padding-top: 10px;
         }
-        h6 {
-            padding-right: 15px;
-        }
+        
         h5 {
             text-align: left;
         }
