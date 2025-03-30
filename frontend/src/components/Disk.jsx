@@ -10,9 +10,9 @@ const Disk = () => {
     <div className="plate">
     <div className="middle">
      
-     <div className="card1">
-      <RecipeCard />
-     </div>
+   
+    <RecipeCard className="card1"/>
+     
      
      
       

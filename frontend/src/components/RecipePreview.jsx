@@ -6,10 +6,10 @@ const handleShowRecipe = () => {
     alert("Show Full Recipe function not yet available");
 };
 
-const RecipePreview = ({title}) => {
+const RecipePreview = ({title, className}) => {
     return (
         
-        <div className="card">
+        <div className={`card ${className}`}>
             {/* preview card of the recipe
             clickable, title, image, author, cook time, show recipe button */} 
             <img src={ImgSrc} width="200" height="200"/>

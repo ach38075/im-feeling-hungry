@@ -8,17 +8,38 @@
     align-items: center;
     justify-content: center;
     cursor: grab;
-    
-    .middle {
-        width: 320px;
-        height: 90px;
-        background-color: #ba0c00;
-        border-radius: 50%;
-        position: relative;
-        bottom: 20px;
-    }
+}
 
-    .card1 .RecipeCard {
-        border: 2px solid #00ff22 !important;
-    }
+/* Fix nested selectors */
+.plate .middle {
+    width: 320px;
+    height: 90px;
+    background-color: #ba0c00;
+    border-radius: 50%;
+    position: relative;
+    bottom: 20px;
+}
+
+.plate .card1 {
+    width: 75%;
+}
+
+.plate .card1 button {
+    margin-top: 10px;
+}
+
+.plate .card1 .info {
+    line-height: 0.05;
+}
+
+.plate .card1 .info hr {
+    border-top: 1px solid black;
+}
+
+.plate .card1 .info h2 {
+    padding-top: 10px;
+}
+
+.plate .card1 .info h5 {
+    text-align: left;
 }
