@@ -12,9 +12,11 @@ const Disk = () => {
      
    
     <RecipeCard className="card1"/>
-     
-     
-     
+    <RecipeCard className="card2" />
+    <RecipeCard className="card3" />
+    <RecipeCard className="card4" />
+    <RecipeCard className="card5" />
+    <RecipeCard className="card6" />
       
     </div>
     </div>
