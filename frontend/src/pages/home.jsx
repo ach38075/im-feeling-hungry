@@ -92,7 +92,7 @@ export function Home () {
       <h1>i'm feeling hungry...</h1>
       
       {/*<Disk />*/}
-      <Disk />
+
 
       {!selectedRecipeId ? (
         <>
