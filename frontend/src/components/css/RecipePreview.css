@@ -7,7 +7,10 @@
     color: black;
     width: 250px;
     height: 370px;
-    
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+
     .info {
     
         line-height: 0.05;
@@ -23,4 +26,11 @@
             text-align: left;
         }
     }
+}
+
+.card:hover {
+    transform: scale(1.1);
+    z-index: 6 !important;
+    border-color: rgb(255, 0, 251);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
 }

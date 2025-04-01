@@ -19,7 +19,7 @@
     }
 
     .card1 {
-        position: absolute;
+
         bottom: -100px;
         right: 125px;
         color: rgb(0, 255, 106);
@@ -27,7 +27,7 @@
     }
 
     .card2 {
-        position: absolute;
+
         color: rgb(255, 0, 191);
         bottom: -30px;
         right: 400px;
@@ -35,7 +35,7 @@
     }
 
     .card3 {
-        position: absolute;
+
         color: rgb(255, 251, 0);
         bottom: -30px;
         left: 400px;
@@ -43,15 +43,15 @@
     }
 
     .card4 {
-        position: absolute;
+
         color: rgb(89, 157, 0);
         bottom: 100px;
         right: 350px;
-        z-index: 2;
+        z-index: 2;     
     }
 
     .card5 {
-        position: absolute;
+
         color: rgb(95, 102, 234);
         bottom: 100px;
         left: 350px;
@@ -59,7 +59,7 @@
     }
 
     .card6 {
-        position: absolute;
+        
         color: rgb(176, 8, 70);
         bottom: 150px;
         right: 125px;
