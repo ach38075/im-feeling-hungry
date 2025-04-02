@@ -34,7 +34,7 @@
         z-index: 3;
     }
 
-    .card3 {
+    .card6 {
 
         color: rgb(255, 251, 0);
         bottom: -30px;
@@ -42,7 +42,7 @@
         z-index: 3;
     }
 
-    .card4 {
+    .card3 {
 
         color: rgb(89, 157, 0);
         bottom: 100px;
@@ -58,12 +58,25 @@
         z-index: 2;
     }
 
-    .card6 {
+    .card4 {
         
         color: rgb(176, 8, 70);
         bottom: 150px;
         right: 125px;
         z-index: 1;
     }
+    
+    
 }
 
+.right {
+    position: absolute;
+    margin-top: 300px;
+    border: 5px solid rgb(0, 77, 164);
+}
+
+.left {
+    position: absolute;
+    margin-top: 350px;
+    border: 5px solid rgb(0, 77, 164);
+}
