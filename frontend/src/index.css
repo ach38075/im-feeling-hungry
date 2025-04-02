@@ -15,38 +15,134 @@
 
 /* this design is temporary too, will change and add other features */
 
-  .app-container {
+.app-container {
     display: flex;
     flex-direction: column; 
     align-items: center;  
     justify-content: center;  
-    gap: 1rem;  
-  }
+    gap: 10px;  
+}
 
+.flex-container{
+    display: flex;
+    width: 400px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.flex-container h2 {
+    color: #000000;
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.flex-container p {
+    padding-left: 30px;
+    margin-top: 1px;
+    margin-bottom: 5px;
+    color: #545454;
+}
+
+hr.solid {
+    border: none;
+    border-top: 1px solid #d9d9d9;
+    margin: 3px auto;
+    width: calc(100% - 30px); /*factor in flex-container padding*/
+}
+
+.search-container {
+    padding-left: 30px;
+    padding-top: 5px;
+}
+
+.custom-checkbox .checkmark {
+    display: inline-block;
+    background-color: #ffffff;
+    border: 2px #d9d9d9 solid;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+}
+
+.custom-checkbox .checkmark:hover {
+    border-color: #b3b3b3;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: #ffffff;
+    border-color: #b3b3b3;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    height: 9px;
+    width: 4px;
+    border: 2px #000000 solid;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.ingredient-input {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.ingredient-input input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+
+.ingredient-input input[placeholder="Enter Ingredient"] {
+    padding: 4px;
+    width: 60%;
+    box-sizing: border-box;
+}
+ 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
 h1 {
     font-family: "Times New Roman", system-ui, Georgia, Garamond, Arial, serif;
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: #fff5ec;
+    font-size: 3.2em;
+    line-height: 1.1;
+    color: #fff5ec;
 }
 
 input {
-  font-size: 1em;
-  line-height: 1.1;
-  color: #373847;
-  background-color: #ffffff; 
+    font-size: 1em;
+    line-height: 1.1;
+    color: #373847;
+    background-color: #ffffff; 
+    border-radius: 4px;
+    border-width: 1px;
 }
+
 input::placeholder {
-  color: #545454; 
-  opacity: .75;  
+    color: #545454; 
+    opacity: .75;  
 }
 
 select {
@@ -61,8 +157,6 @@ select option:checked {
   color: #000000;
 }
 
-
-
 button {
   border-radius: 2px;
   border: 1px solid transparent;
@@ -75,14 +169,35 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.removeButton {
+    height: 25px;
+    width: 25px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    padding: 0;
+    font-size: 1.1;
+    font-weight: 400;
+    font-family: inherit;
+    line-height: 1;
+    background-color: #ffffff;
+    color: #373847;
+    cursor: pointer;
+    transition: border-color: 0.25s;
+    align-items: center;
+    justify-contents: center;
+}
+
 button:hover {
   background-color: #d9d9d9;
   color: #000000
 }
-button:focus,
+
+/*button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+}*/
+
 
 .recipe-list {
   display: grid;
