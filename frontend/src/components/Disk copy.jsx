@@ -1,120 +1,68 @@
 import React, { useState, useRef, useEffect } from 'react';
+import RecipeCard from './RecipePreview';
+import ImgSrc from '../assets/react.svg'
+//import './css/Disk.css';
 
-const RotatingCircle = () => {
-  const [rotation, setRotation] = useState(0);  // The current rotation angle of the circle
-  const [isDragging, setIsDragging] = useState(false);  // Whether the mouse is being dragged
-  const [startAngle, setStartAngle] = useState(0);  // The initial angle when dragging starts
-  const [startX, setStartX] = useState(0);  // The initial X position when dragging starts
-  const [startY, setStartY] = useState(0);  // The initial Y position when dragging starts
-  const centerRef = useRef(null);  // Reference to the center of the circle
+const recipes = [
+  { id: 1, title: "Carne Asada Burritos", time: "45 min", serves: 6, image: ImgSrc},
+  { id: 2, title: "Penne Arrabiata", time: "45 min", serves: 4, image: ImgSrc},
+  { id: 3, title: "Red Lentil Soup", time: "55 min", serves: 8, image: ImgSrc },
+  { id: 4, title: "Spaghetti Carbonara", time: "35 min", serves: 2, image: ImgSrc },
+  { id: 5, title: "Grilled Salmon", time: "30 min", serves: 3, image: ImgSrc },
+  { id: 6, title: "Chicken Alfredo", time: "40 min", serves: 5, image: ImgSrc },
+];
 
-  // Define a speed factor for rotation (a value less than 1 slows it down)
-  const speedFactor = 0.05;
+const RecipeCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(1); // Start centered
 
-  // Function to calculate the angle between the mouse and the center of the circle
-  const getAngle = (x, y) => {
-    const rect = centerRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const dx = x - centerX;
-    const dy = y - centerY;
-    const angle = Math.atan2(dy, dx) * (180 / Math.PI);  // Convert radians to degrees
-    return angle;
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev === 0 ? recipes.length - 1 : prev - 1));
   };
 
-  // Event handler for mouse down
-  const handleMouseDown = (e) => {
-    const initialAngle = getAngle(e.clientX, e.clientY);  // Get initial angle on mouse down
-    setStartAngle(initialAngle);  // Set initial angle when dragging starts
-    setStartX(e.clientX);  // Set initial X position when dragging starts
-    setStartY(e.clientY);  // Set initial Y position when dragging starts
-    setIsDragging(true);
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev === recipes.length - 1 ? 0 : prev + 1));
   };
-
-  // Event handler for mouse move
-  const handleMouseMove = (e) => {
-    if (isDragging) {
-      const currentAngle = getAngle(e.clientX, e.clientY);  // Get the current angle as mouse moves
-
-      // Calculate the difference in angles
-      const angleDifference = currentAngle - startAngle;
-
-      // Apply speed factor and update the rotation
-      setRotation((prevRotation) => prevRotation + angleDifference * speedFactor);
-      
-      // Update start angle to prevent jumping when mouse moves quickly
-      setStartAngle(currentAngle);
-    }
-  };
-
-  // Event handler for mouse up
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  // Add event listeners for mouse events
-  useEffect(() => {
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
-    } else {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    }
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [isDragging]);
-
-  // Calculate the position of the small circle on the edge of the large circle
-  const smallCircleRadius = 100; // The radius of the large circle (adjustable)
-  const smallCircleX = smallCircleRadius * Math.cos((rotation * Math.PI) / 180); // X position
-  const smallCircleY = smallCircleRadius * Math.sin((rotation * Math.PI) / 180); // Y position
 
   return (
-    <div
-      ref={centerRef}
-      style={{
-        width: '300px',
-        height: '300px',
-        position: 'relative',
-        backgroundColor: '#f0f0f0',
-        borderRadius: '50%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
-      }}
-      onMouseDown={handleMouseDown}
-    >
-      <div
-        style={{
-          width: '50px',
-          height: '50px',
-          backgroundColor: 'blue',
-          borderRadius: '50%',
-          position: 'absolute',
-          transformOrigin: 'center',
-          transform: `rotate(${rotation}deg)`,
-        }}
-      >
-        {/* Small circle on the edge */}
-        <div
-          style={{
-            width: '20px',
-            height: '20px',
-            backgroundColor: 'red',
-            borderRadius: '50%',
-            position: 'absolute',
-            top: `calc(50% - 10px)`, // To center the small circle vertically
-            left: `calc(50% - 10px)`, // To center the small circle horizontally
-            transform: `translate(${smallCircleX}px, ${smallCircleY}px)`, // Apply the rotation position
-          }}
-        ></div>
+    <div className="relative w-full max-w-4xl mx-auto py-10 bg-pink-200">
+      {/* Carousel Container */}
+      <div className="flex justify-center items-center overflow-hidden relative">
+        <div className="flex w-full justify-center items-center relative">
+          {recipes.map((recipe, index) => {
+            let position = index - activeIndex;
+            if (position < -1) position += recipes.length; // Wrap around left
+            if (position > 1) position -= recipes.length;  // Wrap around right
+
+            const scale = position === 0 ? "scale-110" : "scale-90";
+            const zIndex = position === 0 ? "z-10" : "z-0";
+            const opacity = position === 0 ? "opacity-100" : "opacity-70";
+
+            return (
+              <div
+                key={recipe.id} // Unique key
+                className={`absolute transition-all duration-500 ease-in-out transform ${scale} ${zIndex} ${opacity}`}
+                style={{ transform: `translateX(${position * 220}px)` }} // Adjust spacing
+              >
+                <div className="relative w-60 bg-white shadow-lg rounded-xl overflow-hidden">
+                  <img
+                    src={recipe.image}
+                    alt={recipe.title}
+                    className="w-full h-40 object-cover"
+                  />
+                  <div className="p-4">
+                    <h3 className="font-bold">{recipe.title}</h3>
+                    <p className="text-sm text-gray-500">
+                      {recipe.time} ⏳ | Serves {recipe.serves}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
-export default RotatingCircle;
+export default RecipeCarousel;

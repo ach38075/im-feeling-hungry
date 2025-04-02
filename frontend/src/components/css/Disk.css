@@ -1,6 +1,6 @@
 .plate {
-    width: 600px;
-    height: 200px;
+    width: 1000px;
+    height: 400px;
     position: relative;
     background-color: #a8a8a8;
     border-radius: 50%;
@@ -8,20 +8,63 @@
     align-items: center;
     justify-content: center;
     cursor: grab;
-    
-    .middle {
-        width: 320px;
-        height: 90px;
-        background-color: #d0d0d0;
-        border-radius: 50%;
-        position: relative;
-        justify-content: center;
-        bottom: 20px;
+    margin-top: 300px;
 
-        .card1 {
-            position: relative;
-            display: flex;
-            bottom: 1000px;
-        }
+    .middle {
+        width: 500px;
+        height: 150px;
+        background-color: #ba0c00;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .card1 {
+
+        bottom: -100px;
+        right: 125px;
+        color: rgb(0, 255, 106);
+        z-index: 5;
+    }
+
+    .card2 {
+
+        color: rgb(255, 0, 191);
+        bottom: -30px;
+        right: 400px;
+        z-index: 3;
+    }
+
+    .card3 {
+
+        color: rgb(255, 251, 0);
+        bottom: -30px;
+        left: 400px;
+        z-index: 3;
+    }
+
+    .card4 {
+
+        color: rgb(89, 157, 0);
+        bottom: 100px;
+        right: 350px;
+        z-index: 2;     
+    }
+
+    .card5 {
+
+        color: rgb(95, 102, 234);
+        bottom: 100px;
+        left: 350px;
+        z-index: 2;
+    }
+
+    .card6 {
+        
+        color: rgb(176, 8, 70);
+        bottom: 150px;
+        right: 125px;
+        z-index: 1;
     }
 }
+
+>>>>>>> c71fa6c1beb92f7cc5d0d40b100024c550942515

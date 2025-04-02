@@ -1,16 +1,16 @@
 .card {
     
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: 1px solid #000000; 
     background-color: rgb(5, 40, 83);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: black;
-    padding: 10px 10px 10px;
-    button {
-        margin-top: 10px;
-    }
-    
+    width: 250px;
+    height: 370px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+
     .info {
     
         line-height: 0.05;
@@ -20,13 +20,17 @@
         }
         h2 {
             color: rgb(205, 18, 86);
-            padding-top: 15px;
         }
-        h6 {
-            padding-right: 15px;
-        }
+        
         h5 {
             text-align: left;
         }
     }
+}
+
+.card:hover {
+    transform: scale(1.1);
+    z-index: 6 !important;
+    border-color: rgb(255, 0, 251);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
 }

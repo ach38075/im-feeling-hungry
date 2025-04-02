@@ -6,7 +6,7 @@ import RecipeDetails from "../components/RecipeDetails";
 import Filters from "../components/Filters";
 import { getRecipes } from "../api";
 //import RecipePreview from "../api";
-import Disk from "../components/Disk";
+import Disk from "../components/Disk.jsx";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
