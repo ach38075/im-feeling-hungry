@@ -38,6 +38,9 @@ export function NavBar() {
                     <h4 className ='user_greeting'>
                         {username ? 'Welcome back, ' + username : ''}
                     </h4>
+                    <Link to="/savedRecipes">
+                        <button>Saved Recipes</button>
+                    </Link>
                     <Link to="/login">
                         <LogoutButton />
                     </Link>

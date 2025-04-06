@@ -32,7 +32,7 @@ export function Login() {
       localStorage.setItem("token", data.token); // Store JWT token
       localStorage.setItem('username', data.name); // Store username
       setRefresh(prev => !prev);
-      alert("Login successful!");
+      // alert("Login successful!");
       setTimeout(() => navigate("/"), 100); // redirect to home page
     } catch (err) {
         setError(err.message);
