@@ -29,76 +29,54 @@ export function SavedRecipes() {
 
     const storedRecipes = [];
 
-      for (let i = 0; i < saved.length; i++) {
-        try {
-          const response = await fetch(`http://localhost:8080/feed/recipe/${saved[i]}`, {
-            method: "GET",
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`,
-            }
-          });
-
-          const data = await response.json();
-          if (!response.ok) {
-            throw new Error(data.message || "Recipe retrieval failed.");
+    for (let i = 0; i < saved.length; i++) {
+      try {
+        const response = await fetch(`http://localhost:8080/feed/recipe/${saved[i]}`, {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
           }
+        });
 
-          storedRecipes.push(data.recipe);
-        } catch (err) {
-            setError(err.message);
-            alert(err.message);
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.message || "Recipe retrieval failed.");
         }
-      }
 
-      setRecipes(storedRecipes);
+        storedRecipes.push(data.recipe);
+      } catch (err) {
+          setError(err.message);
+          alert(err.message);
+      }
+    }
+
+    setRecipes(storedRecipes);
   };
 
   useEffect(() => {
     storeSavedRecipes();
   }, [refresh]); 
 
-  return (
-    <div className={"saved-container"}>
-        <h1>i'm ready to eat...</h1>
 
-          <div className="recipes">
-            {recipes && recipes.length > 0 ? (
-              recipes.map((recipe) => (
-                <RecipeCard
-                  key={recipe.recipeNum}
-                  recipe={recipe}
-                  onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
-                />
-              ))
-            ) : (
-              <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
-            )}
-          </div>
-
-    </div>
-
-    );
-
-  /*
   return (
     <div className={"saved-container"}>
         <h1>i'm ready to eat...</h1>
 
         {!selectedRecipeId ? (
-          <div className="recipes">
-            {recipes && recipes.length > 0 ? (
-              recipes.map((recipe) => (
-                <RecipeCard
-                  key={recipe.recipeNum}
-                  recipe={recipe}
-                  onViewDetails={setSelectedRecipeId(recipe.recipeNum)} // REPLACE
-                />
-              ))
-            ) : (
-              <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
-            )}
-          </div>
+            <div className="recipes">
+              {recipes && recipes.length > 0 ? (
+                recipes.map((recipe) => (
+                  <RecipeCard
+                    key={recipe.recipeNum}
+                    recipe={recipe}
+                    onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
+                  />
+                ))
+              ) : (
+                <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
+              )}
+            </div>
         ) : (
           <RecipeDetails 
               recipeId={selectedRecipeId} 
@@ -109,5 +87,5 @@ export function SavedRecipes() {
     </div>
 
     );
-    */
+
 };
