@@ -19,7 +19,8 @@ export function LogoutButton() {
 
         if (response.ok) {
             localStorage.removeItem('token'); // Remove token from local storage
-            localStorage.removeItem('username'); // Remove token from local storage
+            localStorage.removeItem('username'); 
+            localStorage.removeItem('savedRecipes');
             setRefresh(prev => !prev);
             alert("Logout successful!");
             setTimeout(() => navigate("/login"), 100); // redirect to login page

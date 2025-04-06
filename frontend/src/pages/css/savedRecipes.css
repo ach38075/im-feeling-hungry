@@ -16,3 +16,7 @@
     row-gap: 15px;
 }
 
+.no-recipes {
+    grid-column: span 3;
+}
+

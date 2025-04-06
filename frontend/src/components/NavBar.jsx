@@ -23,6 +23,13 @@ export function NavBar() {
       }
     }, [refresh]);
 
+          // DEBUGGING
+          const debug = () => {
+            const saved = localStorage.getItem("savedRecipes");
+            const recipeArray = saved ? JSON.parse(saved) : [];
+            console.log("Saved Recipes Array:", recipeArray);
+        };
+
     return (
         <div className="container">
             <Link to="/">
@@ -39,7 +46,7 @@ export function NavBar() {
                         {username ? 'Welcome back, ' + username : ''}
                     </h4>
                     <Link to="/savedRecipes">
-                        <button>Saved Recipes</button>
+                        <button onClick={debug}>Saved Recipes</button>
                     </Link>
                     <Link to="/login">
                         <LogoutButton />

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import './css/savedRecipes.css'
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
@@ -13,80 +13,101 @@ export function SavedRecipes() {
   const [error, setError] = useState("");
   const navigate = useNavigate(); 
   const { setRefresh } = useContext(RefreshContext);
+  const [recipes, setRecipes] = useState([]);
+  const { refresh } = useContext(RefreshContext);
+  const [selectedRecipeId, setSelectedRecipeId] = useState(null);
 
   const handleBackToList = () => {
     setSelectedRecipeId(null);
   };
 
-  /*
-  const handleTemp = async (e) => {
-    e.preventDefault();
+  const storeSavedRecipes = async () => {
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+    const savedRaw = localStorage.getItem('savedRecipes');
+    console.log("SavedRecipes (raw):", savedRaw);   // DEBUGGING
+    const saved = savedRaw && savedRaw !== "undefined" ? JSON.parse(savedRaw) : [];
 
-    try {
-      const response = await fetch("http://localhost:8080/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+    const storedRecipes = [];
 
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed.");
+      for (let i = 0; i < saved.length; i++) {
+        try {
+          const response = await fetch(`http://localhost:8080/feed/recipe/${saved[i]}`, {
+            method: "GET",
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            }
+          });
+
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.message || "Recipe retrieval failed.");
+          }
+
+          storedRecipes.push(data.recipe);
+        } catch (err) {
+            setError(err.message);
+            alert(err.message);
+        }
       }
 
-      localStorage.setItem("token", data.token); // Store JWT token
-      localStorage.setItem('username', data.name); // Store username
-      setRefresh(prev => !prev);
-      alert("Login successful!");
-      setTimeout(() => navigate("/"), 100); // redirect to home page
-    } catch (err) {
-        setError(err.message);
-        alert(err.message);
-    }
+      setRecipes(storedRecipes);
   };
-  */
+
+  useEffect(() => {
+    storeSavedRecipes();
+  }, [refresh]); 
 
   return (
     <div className={"saved-container"}>
         <h1>i'm ready to eat...</h1>
-        <div className={"recipes"}>
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-          <RecipeCard 
-              key={'73420'} 
-              recipe={'example'} // recipe
-              onViewDetails={null} // onViewDetails
-          />
-        </div>
-        
+
+          <div className="recipes">
+            {recipes && recipes.length > 0 ? (
+              recipes.map((recipe) => (
+                <RecipeCard
+                  key={recipe.recipeNum}
+                  recipe={recipe}
+                  onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
+                />
+              ))
+            ) : (
+              <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
+            )}
+          </div>
+
     </div>
+
     );
+
+  /*
+  return (
+    <div className={"saved-container"}>
+        <h1>i'm ready to eat...</h1>
+
+        {!selectedRecipeId ? (
+          <div className="recipes">
+            {recipes && recipes.length > 0 ? (
+              recipes.map((recipe) => (
+                <RecipeCard
+                  key={recipe.recipeNum}
+                  recipe={recipe}
+                  onViewDetails={setSelectedRecipeId(recipe.recipeNum)} // REPLACE
+                />
+              ))
+            ) : (
+              <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
+            )}
+          </div>
+        ) : (
+          <RecipeDetails 
+              recipeId={selectedRecipeId} 
+              onBack={handleBackToList}
+          />
+        )}
+
+    </div>
+
+    );
+    */
 };
