@@ -7,15 +7,15 @@ const recipeSchema = new Schema(
       type: String,
       required: true
     },
-    recipe: {
+    title: {
       type: String,
       required: false
     },
-    cost: {
-      type: Number,
-      required: false
+    image: {
+      type: String,
+      required: true
     },
-    region: {
+    sourceUrl: {
       type: String,
       required: false
     },

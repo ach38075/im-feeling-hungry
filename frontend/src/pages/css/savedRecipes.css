@@ -1,0 +1,21 @@
+/* savedRecipes.css */
+
+.saved-container {
+    display: block;
+}
+
+.saved-container h1 {
+    color: white;
+    margin-bottom: 2em;
+}
+
+.recipes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+}
+
+.no-recipes {
+    grid-column: span 3;
+}
+

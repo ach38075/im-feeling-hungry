@@ -12,3 +12,7 @@
     display: inline;
     margin-left: 5em;
 }
+
+.user_display button {
+    margin-left: 1em;
+}

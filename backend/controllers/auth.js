@@ -71,7 +71,8 @@ exports.login = (req, res, next) => {
         { 
           token: token, 
           userId: loadedUser._id.toString(),
-          name: loadedUser.name
+          name: loadedUser.name,
+          recipes: loadedUser.recipes // -----------------
          }
       );
     })

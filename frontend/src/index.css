@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: #fff5ec;
-  background-color: #a40512;
+  background-color: #b1232f;
+  /* background-color: #a40512; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -273,6 +274,12 @@ button:focus-visible {
 
 .external-link:hover {
   text-decoration: underline;
+}
+
+.save-recipe-button.saved {
+  background-color: #28a745;
+  color: white;
+  cursor: default;
 }
 
 /* Recipe Detail Styles */

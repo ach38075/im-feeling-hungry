@@ -14,13 +14,13 @@ router.post(
   '/recipe',
   isAuth,
   [
-    body('recipe')
+    body('title')
       .trim()
       .isLength({ min: 5 }),
-    body('cost')
+    body('image')
       .trim()
       .isLength({ min: 1 }),
-    body('region')
+    body('sourceUrl')
       .trim()
       .isLength({ min: 1 })
   ],
@@ -35,13 +35,13 @@ router.put(
   '/recipe/:recipeId',
   isAuth,
   [
-    body('recipe')
+    body('title')
       .trim()
       .isLength({ min: 5 }),
-    body('cost')
+    body('image')
       .trim()
       .isLength({ min: 1 }),
-    body('region')
+    body('sourceUrl')
       .trim()
       .isLength({ min: 1 })
   ],
@@ -50,7 +50,10 @@ router.put(
 
 
 // DELETE feed/recipe/recipeId
-
 router.delete('/recipe/:recipeId', isAuth, feedController.deleteRecipe);
+
+
+// GET feed/user-recipes
+router.get('/user-recipes', isAuth, feedController.getUserRecipes);
 
 module.exports = router;
