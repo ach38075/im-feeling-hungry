@@ -50,7 +50,10 @@ router.put(
 
 
 // DELETE feed/recipe/recipeId
-
 router.delete('/recipe/:recipeId', isAuth, feedController.deleteRecipe);
+
+
+// GET feed/user-recipes
+router.get('/user-recipes', isAuth, feedController.getUserRecipes);
 
 module.exports = router;

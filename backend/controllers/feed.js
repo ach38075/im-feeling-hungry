@@ -8,7 +8,7 @@ const User = require('../models/user');
 
 exports.getRecipes = (req, res, next) => {
   const currentPage = req.query.page || 1;
-  const perPage = 2;
+  const perPage = 9;
   let totalItems;
   Recipe.find()
     .countDocuments()
@@ -48,21 +48,21 @@ exports.createRecipe = (req, res, next) => {
     throw error;
   }
 
-  if(!req.body.cost)
-    req.body.cost = 0;
+  if(!req.body.title)
+    req.body.title = '';
 
-  if(!req.body.recipe)
-    req.body.recipe = '';
+  if(!req.body.image)
+    req.body.image = '';
 
-  if(!req.body.region)
-    req.body.region = '';
+  if(!req.body.sourceUrl)
+    req.body.sourceUrl = '';
 
   let creator;
   const newRecipe = new Recipe({
     recipeNum: req.body.recipeNum,
-    recipe: req.body.recipe,
-    cost: req.body.cost,
-    region: req.body.region,
+    title: req.body.title,
+    image: req.body.image,
+    sourceUrl: req.body.sourceUrl,
     creator: req.userId
   });
   newRecipe
@@ -131,9 +131,9 @@ exports.updateRecipe = (req, res, next) => {
         throw error;
       }
       eachRecipe.recipeNum = req.body.recipeNum;
-      eachRecipe.recipe = req.body.recipe;
-      eachRecipe.cost = req.body.cost;
-      eachRecipe.region = req.body.region;
+      eachRecipe.title = req.body.title;
+      eachRecipe.image = req.body.image;
+      eachRecipe.sourceUrl = req.body.sourceUrl;
       return eachRecipe.save();
     })
     .then(result => {
@@ -161,15 +161,15 @@ exports.deleteRecipe = (req, res, next) => {
         error.statusCode = 403;
         throw error;
       }
-      return Recipe.findByIdAndRemove(recipeId);
+      return Recipe.findByIdAndDelete(recipeId);
     })
     .then(result => {
-      return User.findById(req.recipeId);
+      return User.findById(req.userId); //
     })
-    // .then(user => {
-    //   user.recipes.pull(recipeId);
-    //   return user.save();
-    // })
+     .then(user => {
+       user.recipes.pull(recipeId);
+       return user.save();
+     })
     .then(result => {
       res.status(200).json({ message: 'Deleted recipe.' });
     })
@@ -180,4 +180,20 @@ exports.deleteRecipe = (req, res, next) => {
       next(err);
     });
 };
+
+//-----------------------
+exports.getUserRecipes = async (req, res, next) => {
+  try {
+    const userId = req.userId;
+
+    // Find all recipes where the creator matches the logged-in user
+    const recipes = await Recipe.find({ creator: userId });
+
+    res.status(200).json({ recipes });
+  } catch (err) {
+    err.statusCode = 500;
+    next(err);
+  }
+};
+
 
