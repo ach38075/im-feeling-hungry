@@ -4,7 +4,10 @@ import { RefreshContext } from '../context/RefreshContext';
 
 const RecipeCard = ({ recipe, onViewDetails}) => {
     const [error, setError] = useState("");
+    const [isSaved, setIsSaved] = useState(false);
     const { setRefresh } = useContext(RefreshContext);
+
+    // const checkIfSaved = async () => {}
 
     const handleSaveRecipe = async (e) => {
         e.preventDefault();
@@ -39,8 +42,8 @@ const RecipeCard = ({ recipe, onViewDetails}) => {
           }
 
           setRefresh(prev => !prev);
-          
-          alert("Saved recipe '" + recipe.title);
+          setIsSaved(true);
+          // alert("Saved recipe '" + recipe.title);
         } catch (err) {
             setError(err.message);
             alert(err.message);
@@ -59,12 +62,14 @@ const RecipeCard = ({ recipe, onViewDetails}) => {
                 >
                     View Recipe Details
                 </button>
-                <button 
-                    className="save-recipe-button" 
+                <button
+                    className={`save-recipe-button ${isSaved ? "saved" : ""}`}
                     onClick={handleSaveRecipe}
+                    disabled={isSaved} // disable if saved
                 >
-                    Save Recipe
+                    {isSaved ? "Saved" : "Save Recipe"} 
                 </button>
+                
             </div>
         </div>
     );
