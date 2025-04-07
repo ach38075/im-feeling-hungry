@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { RefreshContext } from '../context/RefreshContext';
 
 const RecipeCard = ({ recipe, onViewDetails}) => {
     const [error, setError] = useState("");
+    const { setRefresh } = useContext(RefreshContext);
 
     const handleSaveRecipe = async (e) => {
         e.preventDefault();
@@ -36,7 +38,9 @@ const RecipeCard = ({ recipe, onViewDetails}) => {
             throw new Error(data.message || "Failed to save recipe");
           }
 
-          alert("Saved recipe '" + recipe.title + "'");
+          setRefresh(prev => !prev);
+          
+          alert("Saved recipe '" + recipe.title);
         } catch (err) {
             setError(err.message);
             alert(err.message);

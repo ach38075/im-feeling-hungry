@@ -181,15 +181,13 @@ exports.deleteRecipe = (req, res, next) => {
     });
 };
 
-//-----------------------
 exports.getUserRecipes = async (req, res, next) => {
   try {
     const userId = req.userId;
 
-    // Find all recipes where the creator matches the logged-in user
-    const recipes = await Recipe.find({ creator: userId });
-
-    res.status(200).json({ recipes });
+    const user = await User.findById(userId).populate('recipes');
+    res.status(200).json({ recipes: user.recipes });
+    
   } catch (err) {
     err.statusCode = 500;
     next(err);

@@ -21,42 +21,39 @@ export function SavedRecipes() {
     setSelectedRecipeId(null);
   };
 
+  useEffect(() => {
   const storeSavedRecipes = async () => {
     const token = localStorage.getItem('token'); // Retrieve token from local storage
-    const savedRaw = localStorage.getItem('savedRecipes');
-    console.log("SavedRecipes (raw):", savedRaw);   // DEBUGGING
-    const saved = savedRaw && savedRaw !== "undefined" ? JSON.parse(savedRaw) : [];
-
     const storedRecipes = [];
 
-    for (let i = 0; i < saved.length; i++) {
-      try {
-        const response = await fetch(`http://localhost:8080/feed/recipe/${saved[i]}`, {
-          method: "GET",
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          }
-        });
-
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(data.message || "Recipe retrieval failed.");
+    try {
+      const response = await fetch("http://localhost:8080/feed/user-recipes", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         }
+      });
 
-        storedRecipes.push(data.recipe);
-      } catch (err) {
-          setError(err.message);
-          alert(err.message);
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Recipe retrieval failed.");
       }
+
+      setRecipes(data.recipes);
+
+    } catch (err) {
+        setError(err.message);
+        alert(err.message);
     }
 
-    setRecipes(storedRecipes);
+    //setRecipes(storedRecipes);
   };
 
-  useEffect(() => {
     storeSavedRecipes();
   }, [refresh]); 
+
+
 
 
   return (
