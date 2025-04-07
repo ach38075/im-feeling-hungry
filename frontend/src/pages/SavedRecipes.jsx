@@ -16,6 +16,7 @@ export function SavedRecipes() {
   const [recipes, setRecipes] = useState([]);
   const { refresh } = useContext(RefreshContext);
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleBackToList = () => {
     setSelectedRecipeId(null);
@@ -41,6 +42,7 @@ export function SavedRecipes() {
       }
 
       setRecipes(data.recipes);
+      setLoading(false);
 
     } catch (err) {
         setError(err.message);
@@ -54,15 +56,17 @@ export function SavedRecipes() {
   }, [refresh]); 
 
 
-
-
   return (
     <div className={"saved-container"}>
         <h1>i'm ready to eat...</h1>
 
         {!selectedRecipeId ? (
             <div className="recipes">
-              {recipes && recipes.length > 0 ? (
+              {loading ? (
+                <h3 className="no-recipes">Loading saved recipes...</h3>
+              ) : recipes.length === 0 ? (
+                <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
+              ) : (
                 recipes.map((recipe) => (
                   <RecipeCard
                     key={recipe.recipeNum}
@@ -70,8 +74,6 @@ export function SavedRecipes() {
                     onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
                   />
                 ))
-              ) : (
-                <h3 className="no-recipes">No recipes saved. Head to home to search for recipes!</h3>
               )}
             </div>
         ) : (
