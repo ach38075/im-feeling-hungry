@@ -72,6 +72,7 @@ export function SavedRecipes() {
                     key={recipe.recipeNum}
                     recipe={recipe}
                     onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
+                    saveStatus={true}
                   />
                 ))
               )}

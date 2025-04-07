@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { RefreshContext } from '../context/RefreshContext';
 
-const RecipeCard = ({ recipe, onViewDetails}) => {
+const RecipeCard = ({ recipe, onViewDetails, saveStatus}) => {
     const [error, setError] = useState("");
     const [isSaved, setIsSaved] = useState(false);
     const { setRefresh } = useContext(RefreshContext);
 
-    // const checkIfSaved = async () => {}
+    useEffect(() => {
+        setIsSaved(saveStatus);
+    }, [saveStatus]);
 
     const handleSaveRecipe = async (e) => {
         e.preventDefault();
@@ -17,10 +19,10 @@ const RecipeCard = ({ recipe, onViewDetails}) => {
 
         if (!token) {
             setError("You must be logged in to save a recipe.");
-            alert("You must be logged in to save a recipe.");
+            alert("Log in to save this recipe!");
             return;
         }
-    
+
         try {
           const response = await fetch("http://localhost:8080/feed/recipe", {
             method: "POST",
