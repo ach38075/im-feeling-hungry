@@ -25,13 +25,6 @@ export function NavBar() {
       }
     }, [refresh]);
 
-    // DEBUGGING
-    const debug = () => {
-        const saved = localStorage.getItem("savedRecipes");
-        const recipeArray = saved ? JSON.parse(saved) : [];
-        console.log("Saved Recipes Array:", recipeArray);
-    };
-
     const loadSavedRecipes = () => {
         if (location.pathname === '/savedRecipes') {    // if already on SavedRecipes page
             navigate('/'); // first navigate away
@@ -57,10 +50,7 @@ export function NavBar() {
                         {username ? 'Welcome back, ' + username : ''}
                     </h4>
 
-                    <button onClick={() => {
-                        debug();
-                        loadSavedRecipes();
-                    }}>
+                    <button onClick={() => loadSavedRecipes()}>
                         Saved Recipes
                     </button>
 

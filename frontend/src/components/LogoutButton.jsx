@@ -21,13 +21,14 @@ export function LogoutButton() {
             localStorage.removeItem('token'); // Remove token from local storage
             localStorage.removeItem('username'); 
             localStorage.removeItem('savedRecipes');
-            setRefresh(prev => !prev);
             alert("Logout successful!");
             setTimeout(() => navigate("/login"), 100); // redirect to login page
         } else {
             localStorage.removeItem('username'); // Remove token from local storage
             alert("Logout failed - must be signed in to logout");
         }
+
+        setRefresh(prev => !prev);
     };
 
     return <button onClick={handleLogout}>Logout</button>;
