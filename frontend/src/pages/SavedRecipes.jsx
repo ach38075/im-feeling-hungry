@@ -43,13 +43,13 @@ export function SavedRecipes() {
 
       setRecipes(data.recipes);
       setLoading(false);
+      console.log("RECIPES (" + data.recipes.length + ")"); // DEBUGGING
 
     } catch (err) {
         setError(err.message);
         alert(err.message);
     }
 
-    //setRecipes(storedRecipes);
   };
 
     storeSavedRecipes();
@@ -73,6 +73,7 @@ export function SavedRecipes() {
                     recipe={recipe}
                     onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
                     saveStatus={true}
+                    objectId={recipe._id}
                   />
                 ))
               )}

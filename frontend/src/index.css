@@ -277,9 +277,12 @@ button:focus-visible {
 }
 
 .save-recipe-button.saved {
-  background-color: #28a745;
+  background-color: #cccaca;
+  color: black;
+}
+.save-recipe-button.saved:hover {
+  background-color: #ad4444;
   color: white;
-  cursor: default;
 }
 
 /* Recipe Detail Styles */
