@@ -23,34 +23,34 @@ export function SavedRecipes() {
   };
 
   useEffect(() => {
-  const storeSavedRecipes = async () => {
-    const token = localStorage.getItem('token'); // Retrieve token from local storage
-    const storedRecipes = [];
+    const storeSavedRecipes = async () => {
+      const token = localStorage.getItem('token'); // Retrieve token from local storage
+      const storedRecipes = [];
 
-    try {
-      const response = await fetch("http://localhost:8080/feed/user-recipes", {
-        method: "GET",
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+      try {
+        const response = await fetch("http://localhost:8080/feed/user-recipes", {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          }
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.message || "Recipe retrieval failed.");
         }
-      });
 
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Recipe retrieval failed.");
+        setRecipes(data.recipes);
+        setLoading(false);
+        console.log("RECIPES (" + data.recipes.length + ")"); // DEBUGGING
+
+      } catch (err) {
+          setError(err.message);
+          alert(err.message);
       }
 
-      setRecipes(data.recipes);
-      setLoading(false);
-
-    } catch (err) {
-        setError(err.message);
-        alert(err.message);
-    }
-
-    //setRecipes(storedRecipes);
-  };
+    };
 
     storeSavedRecipes();
   }, [refresh]); 
@@ -73,6 +73,7 @@ export function SavedRecipes() {
                     recipe={recipe}
                     onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}
                     saveStatus={true}
+                    objectId={recipe._id}
                   />
                 ))
               )}
