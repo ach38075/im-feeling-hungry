@@ -40,9 +40,11 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
                     throw new Error(data.message || "Failed to delete recipe");
                   }
                   
-                  setRefresh(prev => !prev);
+                  console.log(data.message);   // DEBUGGING
                   setLocalObjectId(null);
                   setIsSaved(false);
+                  setRefresh(prev => !prev);
+
 
             } else { // save recipe
                 const response = await fetch("http://localhost:8080/feed/recipe", {
@@ -65,9 +67,10 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
                   }
                   
                   console.log(data);   // DEBUGGING
-                  setRefresh(prev => !prev);
                   setLocalObjectId(data.newRecipe._id);
                   setIsSaved(true);
+                  setRefresh(prev => !prev);
+
                   // alert("Saved recipe '" + recipe.title);
             }
         } catch (err) {
