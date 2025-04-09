@@ -194,4 +194,27 @@ exports.getUserRecipes = async (req, res, next) => {
   }
 };
 
+exports.getUserRecipeById = async (req, res, next) => {
+  try {
+    const userId = req.userId;
+    const recipeNum = req.params.recipeNum;
+
+    const recipe = await Recipe.findOne({ recipeNum: recipeNum, creator: userId });
+
+    if (!recipe) {
+      const error = new Error('Recipe not found for this user.');
+      error.statusCode = 404;
+      throw error;
+    }
+
+    res.status(200).json({ recipe: recipe });
+    
+  } catch (err) {
+    if (!err.statusCode) {
+      err.statusCode = 500;
+    }
+    next(err);
+  }
+};
+
 

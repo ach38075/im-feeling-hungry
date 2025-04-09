@@ -56,4 +56,7 @@ router.delete('/recipe/:recipeId', isAuth, feedController.deleteRecipe);
 // GET feed/user-recipes
 router.get('/user-recipes', isAuth, feedController.getUserRecipes);
 
+// GET feed/user-recipes/:recipeNum
+router.get('/user-recipes/:recipeNum', isAuth, feedController.getUserRecipeById);
+
 module.exports = router;
