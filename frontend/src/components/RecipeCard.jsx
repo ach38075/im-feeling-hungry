@@ -6,10 +6,12 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
     const [error, setError] = useState("");
     const [isSaved, setIsSaved] = useState(false);
     const { setRefresh } = useContext(RefreshContext);
+    const [localObjectId, setLocalObjectId] = useState(objectId);
 
     useEffect(() => {
         setIsSaved(saveStatus);
-    }, [saveStatus]);
+        setLocalObjectId(objectId);
+    }, [saveStatus, objectId]);
 
     const handleSaveRecipe = async (e) => {
         e.preventDefault();
@@ -25,7 +27,7 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
 
         try {
             if (isSaved) { // if recipe is saved, provide option to delete
-                const response = await fetch(`http://localhost:8080/feed/recipe/${objectId}`, {
+                const response = await fetch(`http://localhost:8080/feed/recipe/${localObjectId}`, {
                     method: "DELETE",
                     headers: { 
                         "Content-Type": "application/json",
@@ -37,8 +39,9 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
                   if (!response.ok) {
                     throw new Error(data.message || "Failed to delete recipe");
                   }
-        
+                  
                   setRefresh(prev => !prev);
+                  setLocalObjectId(null);
                   setIsSaved(false);
 
             } else { // save recipe
@@ -60,8 +63,10 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
                   if (!response.ok) {
                     throw new Error(data.message || "Failed to save recipe");
                   }
-        
+                  
+                  console.log(data);   // DEBUGGING
                   setRefresh(prev => !prev);
+                  setLocalObjectId(data.newRecipe._id);
                   setIsSaved(true);
                   // alert("Saved recipe '" + recipe.title);
             }

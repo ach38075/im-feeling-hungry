@@ -9,6 +9,7 @@ const RecipeList = ({ recipes, onViewDetails }) => {
                     key={recipe.id} 
                     recipe={recipe} 
                     onViewDetails={onViewDetails}
+                    objectId={null}
                 />
             ))}
         </div>
