@@ -7,7 +7,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: grab;
     margin-top: 300px;
 
     .middle {
@@ -20,8 +19,8 @@
 
     .card1 {
 
-        bottom: -100px;
-        right: 125px;
+        bottom: -100px; /* y-coord */
+        right: 125px; /* x-coord */
         color: rgb(0, 255, 106);
         z-index: 5;
     }
@@ -79,4 +78,25 @@
     position: absolute;
     margin-top: 350px;
     border: 5px solid rgb(0, 77, 164);
+}
+
+.plate2 {
+    width: 1000px;
+    height: 400px;
+    position: relative;
+    background-color: #a8a8a8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    margin-top: 150px;
+
+    .middle2 {
+        width: 500px;
+        height: 150px;
+        background-color: #ba0c00;
+        border-radius: 50%;
+        position: absolute;
+    }
 }

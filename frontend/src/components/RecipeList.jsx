@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 
+
 const RecipeList = ({ recipes, onViewDetails }) => {
     const [objectIds, setObjectIds] = useState({}); // { recipeId: objectId }
 

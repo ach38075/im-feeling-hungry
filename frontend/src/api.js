@@ -5,7 +5,9 @@ export const getRecipes = async (ingredients, filters) => {
     const ingredientList = ingredients.split(",").map((i) => i.trim()).join(",");
     const applianceList = filters.appliances.join(",");
     const dietList = filters.diet.join(",");
-    const url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=3&maxReadyTime=${filters.cookTime}&diet=${dietList}&equipment=${applianceList}&apiKey=${API_KEY}`;
+    const url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=6&maxReadyTime=${filters.cookTime}&diet=${dietList}&equipment=${applianceList}&apiKey=${API_KEY}`;
+    
+    {/*const url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=3&maxReadyTime=${filters.cookTime}&diet=${dietList}&equipment=${applianceList}&apiKey=${API_KEY}`;*/}
     
     const response = await fetch(url);
     const info = await response.json();

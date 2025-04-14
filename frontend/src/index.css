@@ -184,9 +184,9 @@ button {
     background-color: #ffffff;
     color: #373847;
     cursor: pointer;
-    transition: border-color: 0.25s;
+    transition: 0.25s;
     align-items: center;
-    justify-contents: center;
+    justify-content: center;
 }
 
 button:hover {
@@ -394,5 +394,7 @@ button:focus-visible {
     padding: 1.5rem;
   }
 }
+
+/* PLATE CSS */
 
 
