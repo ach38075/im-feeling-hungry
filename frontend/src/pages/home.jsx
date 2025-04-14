@@ -7,6 +7,7 @@ import Filters from "../components/Filters";
 import { getRecipes } from "../api";
 //import RecipePreview from "../api";
 import Disk from "../components/Disk.jsx";
+import Test from "../components/Test.jsx";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
@@ -64,8 +65,11 @@ export function Home () {
 	newIngredients[index].checked = !newIngredients[index].checked;
 	setIngredients(newIngredients);
     };
-    
-    const handleSearch = async () => {
+
+	const [showCards, setShowCards] = useState(false);
+
+	//handles Find Recipes button toggle
+    const handleSearch = async () => { 
 	setHasSearchedRecipes(true);
 	const checkedIngredients = ingredients
 	      .filter(ingredient => ingredient.checked && ingredient.name.trim() !== "")
@@ -84,9 +88,13 @@ export function Home () {
             setRecipes(results);
             setSelectedRecipeId(null); // Reset selected recipe when searching
         
+			console.log(results.length);
+
             if (results.length === 0) {
 		setError("No recipes found with these ingredients and filters. Try adjusting your search.");
-            }
+            } else {
+				setShowCards(true);
+			}
 	} catch (err) {
             setError("Error finding recipes. Please try again.");
             console.error(err);
@@ -111,6 +119,8 @@ export function Home () {
 	{handleIntroText()}
 	
       {/*<Disk />*/}
+	  {/*<Test />*/}
+	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
 
       {!selectedRecipeId ? (
 	  <>
