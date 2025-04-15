@@ -24,7 +24,43 @@
     gap: 10px;  
 }
 
-.flex-container{
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters-container,
+.cook-time-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cook-time-container {
+    margin-top: 20px;
+}
+
+.left-col {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.left-col label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.right-col {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.right-col .filters-container {
+    display: block;
+}
+
+.flex-container,
+.filter-group,
+.cook-time-container {
     display: flex;
     width: 400px;
     align-items: flex-start;
@@ -34,16 +70,32 @@
     justify-content: space-between;
     background-color: #ffffff;
     border-radius: 4px;
+    padding-bottom: 5px;
+    {/* box-shadow: 5px 5px blur #000000; */}
 }
 
-.flex-container h2 {
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.flex-container h2,
+label.cookTime,
+label.appliances,
+label.diet {
     color: #000000;
     padding-left: 30px;
     margin-top: 10px;
     margin-bottom: 0;
 }
 
-.flex-container p {
+label.cookTime,
+label.appliances,
+label.diet {
+    font-weight: bold;
+}
+
+.flex-container p,
+.filter-group p {
     padding-left: 30px;
     margin-top: 1px;
     margin-bottom: 5px;
@@ -62,6 +114,27 @@ hr.solid {
     padding-top: 5px;
 }
 
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.checkbox-item {
+    margin-left: 30px;
+    margin-bottom: 6px;
+}
+
+.custom-checkbox .applianceName,
+.custom-checkbox .dietName {
+    margin: 0 0 0 8px;
+    padding: 0;
+    line-height: 1.1;
+    font-size: 1em;
+    color: #373847;
+    white-space: nowrap;
+}
+
 .custom-checkbox .checkmark {
     display: inline-block;
     background-color: #ffffff;
@@ -71,7 +144,7 @@ hr.solid {
     position: relative;
     height: 16px;
     width: 16px;
-    margin-top: 4px;
+    margin-top: 0;
 }
 
 .custom-checkbox .checkmark:hover {
@@ -103,7 +176,8 @@ hr.solid {
     margin-top: 8px;
 }
 
-.ingredient-input input[type="checkbox"] {
+.ingredient-input input[type="checkbox"],
+.checkbox-item input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     height: 0;
@@ -113,7 +187,15 @@ hr.solid {
 
 .ingredient-input input[placeholder="Enter Ingredient"] {
     padding: 4px;
-    width: 60%;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.cook-time-container input[type="number"] {
+    margin-left: 30px;
+    margin-bottom: 8px;
+    padding: 4px;
+    width: 100%
     box-sizing: border-box;
 }
  
@@ -132,13 +214,16 @@ h1 {
     color: #fff5ec;
 }
 
-input {
+input,
+.applianceName,
+.dietName {
     font-size: 1em;
     line-height: 1.1;
     color: #373847;
     background-color: #ffffff; 
     border-radius: 4px;
     border-width: 1px;
+    padding: 4px;
 }
 
 input::placeholder {
@@ -171,6 +256,10 @@ button {
   transition: border-color 0.25s;
 }
 
+.searchButton {
+    margin-bottom: 20px;
+}
+
 .removeButton {
     height: 25px;
     width: 25px;
@@ -184,7 +273,7 @@ button {
     background-color: #ffffff;
     color: #373847;
     cursor: pointer;
-    transition: 0.25s;
+    transition: border-color 0.25s;
     align-items: center;
     justify-content: center;
 }
