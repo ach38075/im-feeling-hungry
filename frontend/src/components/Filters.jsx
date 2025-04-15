@@ -1,62 +1,67 @@
 import React from "react";
 
 const Filters = ({filters, setFilters}) => {
-    const applianceOptions = ["oven", "microwave", "stove", "airfryer", "slow cooker"];
+    const applianceOptions = ["Oven", "Microwave", "Stove", "Airfryer", "Slow Cooker"];
     const dietOptions = ["Vegetarian", "Vegan", "Pescetarian", "Gluten-Free", "Dairy-Free", "High Protein"];
     
-    const handleApplianceChange = (e) => {
-        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
-        setFilters({ ...filters, appliances: selectedOptions });
+    const handleApplianceChange = (appliance) => {
+        const updatedAppliances = filters.appliances.includes(appliance)
+	      ? filters.appliances.filter((item) => item != appliance)
+	      : [...filters.appliances, appliance];
+	setFilters({...filters, appliances: updatedAppliances});
     };
         
-    const handleDietChange = (e) => {
-        const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
-        setFilters({ ...filters, diet: selectedOptions });
+    const handleDietChange = (diet) => {
+        const updatedDiet = filters.diet.includes(diet)
+	      ? filters.diet.filter((item) => item != diet)
+	      : [...filters.diet, diet];
+        setFilters({...filters, diet: updatedDiet});
     };
 
     return (
-        <div className="filters-container">
+        <div className="filters-container">            
             <div className="filter-group">
-                <label htmlFor="cookTime">Max Cook Time (minutes):</label>
-                <input
-                    id="cookTime"
-                    type="number"
-                    placeholder="Max Cook Time (minutes)"
-                    value={filters.cookTime}
-                    onChange={(e) => setFilters({ ...filters, cookTime: e.target.value })}
-                />
+                <label className="appliances">Cooking Appliances:</label>
+		<p>Select appliances you wish to use</p>
+                <div className="checkbox-group">
+		    {applianceOptions.map((appliance, index) => (
+			<div key={index} className="checkbox-item">
+			    <label className="custom-checkbox">
+				<input
+				    type="checkbox"
+				    checked={filters.appliances.includes(appliance)}
+				    onChange={() => handleApplianceChange(appliance)}
+				/>
+				<span className="checkmark"></span>
+				<span className="applianceName">{appliance}</span>
+			    </label>
+			</div>
+		    ))}
+		</div>
             </div>
             
             <div className="filter-group">
-                <label htmlFor="appliances">Cooking Appliances:</label>
-                <select 
-                    id="appliances"
-                    multiple 
-                    value={filters.appliances} 
-                    onChange={handleApplianceChange}
-                >
-                    {applianceOptions.map((appliance) => (
-                        <option key={appliance} value={appliance}>{appliance}</option>
+                <label className="diet">Dietary Restrictions:</label>
+		<p>Select all that apply</p>
+		<div className="checkbox-group">
+                    {dietOptions.map((diet, index) => (
+			<div key={index} className="checkbox-item">
+			    <label className="custom-checkbox">
+				<input
+				    type="checkbox"
+				    checked={filters.diet.includes(diet)}
+				    onChange={() => handleDietChange(diet)}
+				/>
+				<span className="checkmark"></span>
+				<span className="dietName">{diet}</span>
+			    </label>
+			</div>
                     ))}
-                </select>
-                <small>(Hold Ctrl/Cmd to select multiple)</small>
+                </div>
             </div>
-            
-            <div className="filter-group">
-                <label htmlFor="diet">Dietary Restrictions:</label>
-                <select 
-                    id="diet"
-                    multiple 
-                    value={filters.diet} 
-                    onChange={handleDietChange}
-                >
-                    {dietOptions.map((diet) => (
-                        <option key={diet} value={diet}>{diet}</option>
-                    ))}
-                </select>
-                <small>(Hold Ctrl/Cmd to select multiple)</small>
-            </div>
-        </div>
+
+	    
+	</div>
     );
 };
 

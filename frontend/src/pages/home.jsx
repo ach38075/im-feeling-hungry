@@ -10,9 +10,11 @@ import Disk from "../components/Disk";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
-	{ name: "", checked: false },
-	{ name: "", checked: false },
-	{ name: "", checked: false }
+	{ name: ""},
+	{ name: ""},
+	{ name: ""},
+	{ name: ""},
+	{ name: ""}
     ]);
     const [hasSearchedRecipes, setHasSearchedRecipes] = useState(false);
     const [filters, setFilters] = useState({
@@ -53,25 +55,23 @@ export function Home () {
 
     //remove ingredient from ingredient list
     const handleRemoveIngredient = (index) => {
-	handleIngredientCheck(index);
 	const newIngredients = ingredients.filter((_, i) => i !== index);
 	setIngredients(newIngredients);	
     };
 
-    //handles ingredients checkbox toggle
-    const handleIngredientCheck = (index) => {
-	const newIngredients = [...ingredients];
-	newIngredients[index].checked = !newIngredients[index].checked;
-	setIngredients(newIngredients);
+    const validIngredients = ingredients
+	  .filter(ingredient => ingredient.name.trim() != "")
+	  .map(ingredient => ingredient.name);
+
+    const handleCookTimeChange = (e) => {
+	const value = e.target.value;
+	setFilters({...filters, cookTime: value == "" ? "" : Math.max(0, Number(value))});	
     };
     
     const handleSearch = async () => {
 	setHasSearchedRecipes(true);
-	const checkedIngredients = ingredients
-	      .filter(ingredient => ingredient.checked && ingredient.name.trim() !== "")
-	      .map(ingredient => ingredient.name); 
 
-	if (checkedIngredients.length === 0) {
+	if (validIngredients.length === 0) {
             setError("Please enter at least one ingredient");
             return;
 	}
@@ -79,8 +79,7 @@ export function Home () {
 	try {
             setLoading(true);
             setError(null);
-	    //use checkedIngredients or just ingredients?
-            const { results } = await getRecipes(checkedIngredients.join(','), filters);
+            const { results } = await getRecipes(validIngredients.join(','), filters);
             setRecipes(results);
             setSelectedRecipeId(null); // Reset selected recipe when searching
         
@@ -114,43 +113,55 @@ export function Home () {
 
       {!selectedRecipeId ? (
 	  <>
-	      <div className="flex-container">
-		  <h2>Grocery List</h2>
-		  <p>Type in desired ingredients</p>
-		  <hr className="solid" />
-		  <div className="search-container">
-		      {ingredients.map((ingredient, index) => (
-			  <div key={index} className="ingredient-input">
-			      <label className="custom-checkbox">
-				  <input
-				      type="checkbox"
-				      checked={ingredient.checked}
-				      onChange={() => handleIngredientCheck(index)}
-				  />
-			      	  <span className="checkmark"></span>
-			      </label>
-			      <input
-				  type="text"
-				  placeholder="Enter Ingredient"
-				  value={ingredient.name}
-				  onChange={(e) => handleIngredientChange(index, e.target.value)}
-			      /> 
+	      <div className="layout">
+		  <div className="left-col">
+		      <div className="flex-container">
+			  <h2>Grocery List</h2>
+			  <p>Type in desired ingredients</p>
+			  <hr className="solid" />
+			  <div className="search-container">
+			      {ingredients.map((ingredient, index) => (
+				  <div key={index} className="ingredient-input">
+				      <input
+					  type="text"
+					  placeholder="Enter Ingredient"
+					  value={ingredient.name}
+					  onChange={(e) => handleIngredientChange(index, e.target.value)}
+				      /> 
+				      <button
+					  className="removeButton"
+					  onClick={() => handleRemoveIngredient(index)}>&times;</button>
+				  </div>
+			      ))}
 			      <button
-				  className="removeButton"
-				  onClick={() => handleRemoveIngredient(index)}>&times;</button>
-			  </div>
-		      ))}
-		      <button onClick={handleAddIngredient}>Add Ingredient</button>
-		      <button onClick={handleSearch} disabled={loading}>
-			  {loading ? "Searching..." : "Find Recipes"}
-		      </button>
+				  className="addIngredientButton"
+				  onClick={handleAddIngredient}>Add Ingredient</button>
+			  </div> 
+		      </div>
+		      <div className="cook-time-container">
+			  <label className="cookTime">Max Cook Time (minutes):</label>
+			  <input
+			      id="cookTime"
+			      type="number"
+			      placeholder="Max Cook Time"
+			      min="0"
+			      value={filters.cookTime == "" ? "" : filters.cookTime}
+			      onChange={handleCookTimeChange}
+			  />
+		      </div>
+		  </div> 
+
+		  <div className="right-col">
+		      <Filters filters={filters} setFilters={setFilters} />
 		  </div>
-              </div>
+	      </div>
+	  
+	      <button className="searchButton" onClick={handleSearch} disabled={loading}>                    
+                  {loading ? "Searching..." : "Find Recipes"}                                 
+              </button>   
 	      
-              <Filters filters={filters} setFilters={setFilters} />
-          
               {error && <p className="error-message">{error}</p>}
-          
+              
               {loading ? (
 		  <p>Finding recipes for you...</p>
               ) : (
