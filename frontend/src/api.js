@@ -11,7 +11,7 @@ export const getRecipes = async (ingredients, filters) => {
   const cuisineParam = filters.cuisine ? `&cuisine=${filters.cuisine}` : "";
 
   // First attempt with full data
-  let url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=12${cookTimeParam}${dietParam}${intoleranceParam}${mealTypeParam}${cuisineParam}&addRecipeInformation=true&apiKey=${API_KEY}`;
+  let url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=6${cookTimeParam}${dietParam}${intoleranceParam}${mealTypeParam}${cuisineParam}&addRecipeInformation=true&apiKey=${API_KEY}`;
   console.log("🧪 First attempt URL:", url);
 
   let response = await fetch(url);

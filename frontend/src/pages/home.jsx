@@ -92,7 +92,7 @@ export function Home () {
 	  const { results } = await getRecipes(validIngredients.join(','), filters);
 	  console.log("🐔 Raw results in home.jsx:", results);
 
-	  setRecipes(results.slice(0, 3));
+	  setRecipes(results.slice(0, 6));
 	  setSelectedRecipeId(null);
 
 	  if (results.length === 0) {
@@ -170,11 +170,8 @@ export function Home () {
 	  		<option value="dessert">Dessert</option>
 	  		<option value="appetizer">Appetizer</option>
 	  		<option value="salad">Salad</option> 
-	  		<option value="bread">Bread</option>
-	  		<option value="breakfi wast">Breakfast</option>
+	  		<option value="breakfast">Breakfast</option>
 	  		<option value="soup">Soup</option>
-	  		<option value="beverage">Beverage</option>
-	  		<option value="sauce">Sauce</option>
 	  		<option value="snack">Snack</option>
 	  	      </select>
 	  	  </div>

@@ -5,9 +5,10 @@ const Filters = ({ filters, setFilters }) => {
     "Vegetarian",
     "Vegan",
     "Pescetarian",
-    "Gluten-Free",
-    "Dairy-Free",
-    "High Protein"
+    "Ketogenic",
+    "Lacto-Vegetarian",
+    "Ovo-Vegetarian",
+    "Paleo"
   ];
 
   const intoleranceOptions = [
@@ -30,11 +31,8 @@ const Filters = ({ filters, setFilters }) => {
     "Dessert",
     "Appetizer",
     "Salad",
-    "Bread",
     "Breakfast",
     "Soup",
-    "Beverage",
-    "Sauce",
     "Snack"
   ];
 
