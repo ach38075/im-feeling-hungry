@@ -58,6 +58,7 @@
     display: block;
 }
 
+
 .flex-container,
 .filter-group,
 .cook-time-container {
@@ -73,6 +74,126 @@
     padding-bottom: 5px;
     {/* box-shadow: 5px 5px blur #000000; */}
 }
+
+.dietary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+.allergy-container {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 400px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* Titles */
+.dietary-container label,
+.allergy-container label {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+  padding-left: 30px;
+  margin-bottom: 2px;
+}
+
+
+/* Helper text */
+.dietary-container p,
+.allergy-container p {
+  font-size: 0.9em;
+  font-weight: normal;   /* 🔥 Not bold */
+  color: #545454;
+  padding-left: 30px;
+  margin-top: 1px;
+  margin-bottom: 8px;
+  text-align: left;
+  padding-left: 0;
+}
+
+
+/* Titles for diet & allergy sections */
+.dietary-container label,
+.allergy-container label {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #000000;
+  margin-left: 30px;
+  margin-top: 10px;
+  padding-left: 0;
+}
+
+/* Helper text like "Select all that apply" */
+.dietary-container p,
+.allergy-container p {
+  font-size: 0.9em;
+  color: #545454;
+  margin-left: 30px;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* Horizontal rule under titles */
+.dietary-container hr,
+.allergy-container hr {
+  border: none;
+  border-top: 1px solid #d9d9d9;
+  margin: 3px auto;
+  width: calc(100% - 30px);
+}
+
+/* Option names like Vegan, Dairy, etc. */
+.custom-checkbox .dietName {
+  font-size: .9em;
+  font-weight: normal;
+  color: #373847;
+  margin-left: 8px;
+}
+
+
+.meal-type-container,
+.cuisine-container {
+  margin-top: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 400px;
+  border-radius: 4px;
+  padding-bottom: 5px;
+}
+
+.meal-type-container label,
+.cuisine-container label {
+  text-align: left;
+  padding-left: 30px;
+  margin-bottom: 6px; /* Adds space between label and box */
+  font-weight: bold;
+  color: #000000;
+}
+
+.meal-type-container select,
+.cuisine-container select {
+  margin-left: 30px;
+  margin-bottom: 12px;
+  margin-top: 8px;
+  width: 85%;
+}
+
 
 .filter-group {
     margin-bottom: 20px;
@@ -118,14 +239,22 @@ hr.solid {
     display: flex;
     align-items: center;
     position: relative;
+    
 }
 
 .checkbox-item {
-    margin-left: 30px;
     margin-bottom: 6px;
 }
 
-.custom-checkbox .applianceName,
+.allergy-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 6px;
+  padding-left: 30px;
+}
+
+
 .custom-checkbox .dietName {
     margin: 0 0 0 8px;
     padding: 0;
@@ -187,8 +316,14 @@ hr.solid {
 
 .ingredient-input input[placeholder="Enter Ingredient"] {
     padding: 4px;
-    width: 70%;
+    margin-bottom: 5px;
+    width: 80%;
     box-sizing: border-box;
+    background-color: #ffffff;
+    color: #373847;
+    border: 1px solid #ccc; 
+    border-radius: 4px
+    
 }
 
 .cook-time-container input[type="number"] {
@@ -197,6 +332,10 @@ hr.solid {
     padding: 4px;
     width: 100%
     box-sizing: border-box;
+    background-color: #ffffff;
+    color: #373847;
+    border: 1px solid #999; 
+    border-radius: 2px
 }
  
 body {
@@ -214,18 +353,6 @@ h1 {
     color: #fff5ec;
 }
 
-input,
-.applianceName,
-.dietName {
-    font-size: 1em;
-    line-height: 1.1;
-    color: #373847;
-    background-color: #ffffff; 
-    border-radius: 4px;
-    border-width: 1px;
-    padding: 4px;
-}
-
 input::placeholder {
     color: #545454; 
     opacity: .75;  
@@ -236,6 +363,7 @@ select {
   line-height: 1.1;
   color: #373847;
   background-color: #ffffff; 
+  margin-left: 30px;
 }
 select option:checked {
   font-weight: 500;
@@ -277,6 +405,24 @@ button {
     align-items: center;
     justify-content: center;
 }
+.addIngredientButton {
+  margin-left: -70px; /* Aligns with ingredient input field */
+  background-color: #ffffff;
+  color: #373847;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-size: .8em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.addIngredientButton:hover {
+  background-color: #d9d9d9;
+  color: #000000;
+}
+
 
 button:hover {
   background-color: #d9d9d9;
