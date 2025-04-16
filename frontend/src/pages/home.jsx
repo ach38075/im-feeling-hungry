@@ -70,7 +70,7 @@ export function Home () {
     };
 
 	// Plate recipe cards
-	const [recipeCards, setRecipeCards] = useState([]);
+	const [recipeCards, setRecipeCards] = useState([]); //might be able to get rid of this?
 	const [showCards, setShowCards] = useState(false);
 	const handleReceiveCards = (cards) => {
 		setRecipeCards(cards);
@@ -126,7 +126,7 @@ export function Home () {
       {/*<Disk />*/}
 	  {/*<Test />*/}
 	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
-	  <Disk {...(showCards ? { cards: recipeCards } : {})} />
+	  
 
       {!selectedRecipeId ? (
 	  <>

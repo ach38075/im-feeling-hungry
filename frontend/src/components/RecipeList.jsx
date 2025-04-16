@@ -35,20 +35,8 @@ const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
         };
         fetchObjectIds();
     }, [recipes]);
-
-    {/*
-    const recipeCards = recipes.map((recipe, index) => (
-        <RecipeCard 
-                id ={index + 1}
-                key={recipe.id} 
-                recipe={recipe} 
-                onViewDetails={onViewDetails}
-                saveStatus={objectIds[recipe.id] != null}   // if there's an objectId, this recipe has already been saved
-                objectId={objectIds[recipe.id] || null}     // if recipe has not been saved, set objectId to null
-        />
-    ));
-    */}
     
+    {/* USE THIS ONE for plate cards
     const [hasSentCards, setHasSentCards] = useState(false);
     useEffect(() => {
         if (!hasSentCards && sendCards && recipes.length > 0) {
@@ -67,17 +55,9 @@ const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
             setHasSentCards(true);
         }
     }, [recipes, objectIds, sendCards, hasSentCards]);
-    
-
-    {/*
-    return (
-        <div>
-            {recipeCards}
-        </div>
-    );
     */}
 
-    {/*
+    
     return (
         <div className="recipe-list">
             {recipes.map((recipe) => (
@@ -91,7 +71,7 @@ const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
             ))}
         </div>
     );
-    */}
+    
     
 };
 
