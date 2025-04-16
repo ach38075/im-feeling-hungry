@@ -1,6 +1,6 @@
 .plate {
-    width: 1000px;
-    height: 400px;
+    width: 1800px;
+    height: 680px;
     position: relative;
     background-color: #a8a8a8;
     border-radius: 50%;
@@ -10,8 +10,8 @@
     margin-top: 300px;
 
     .middle {
-        width: 500px;
-        height: 150px;
+        width: 600px;
+        height: 250px;
         background-color: #ba0c00;
         border-radius: 50%;
         position: absolute;
@@ -70,13 +70,15 @@
 
 .right {
     position: absolute;
-    margin-top: 300px;
+    margin-top: 500px;
+    margin-bottom: 200px;
     border: 5px solid rgb(0, 77, 164);
 }
 
 .left {
     position: absolute;
-    margin-top: 350px;
+    margin-top: 550px;
+    margin-bottom: 200px;
     border: 5px solid rgb(0, 77, 164);
 }
 

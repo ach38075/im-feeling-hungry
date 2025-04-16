@@ -35,24 +35,19 @@ const Disk = ({ cards }) => {
     <div className="plate">
     <div className="middle">
      
-     {/*
-    {cards.map((card) => {
 
-      console.log(card.cardName);
-      return(
-        <RecipeCard className={`${card.cardName + card.id}`} title={`${card.title}`} key={`${card.id}`}/>
-      );
-    })} 
-    */}
+    {cards?.map((card) => card)}
     
     <button className="left" onClick={leftShift}>Scroll Cards Left</button>
     <button className="right" onClick={rightShift}>Scroll Cards Right</button>
     </div> {/*"middle"*/}
     </div> {/*"plate"*/}
 
+    {/*
     <div className="plate2">
     <div className="middle2"></div>
     </div>
+    */}
 
     {/*unnamed*/}
     </div> 

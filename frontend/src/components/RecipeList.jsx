@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 
 
-const RecipeList = ({ recipes, onViewDetails }) => {
+const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
     const [objectIds, setObjectIds] = useState({}); // { recipeId: objectId }
 
     useEffect(() => {
@@ -36,6 +36,48 @@ const RecipeList = ({ recipes, onViewDetails }) => {
         fetchObjectIds();
     }, [recipes]);
 
+    {/*
+    const recipeCards = recipes.map((recipe, index) => (
+        <RecipeCard 
+                id ={index + 1}
+                key={recipe.id} 
+                recipe={recipe} 
+                onViewDetails={onViewDetails}
+                saveStatus={objectIds[recipe.id] != null}   // if there's an objectId, this recipe has already been saved
+                objectId={objectIds[recipe.id] || null}     // if recipe has not been saved, set objectId to null
+        />
+    ));
+    */}
+    
+    const [hasSentCards, setHasSentCards] = useState(false);
+    useEffect(() => {
+        if (!hasSentCards && sendCards && recipes.length > 0) {
+            const cards = recipes.map((recipe, index) => (
+                <RecipeCard 
+                        id ={index + 1}
+                        key={recipe.id} 
+                        recipe={recipe} 
+                        onViewDetails={onViewDetails}
+                        saveStatus={objectIds[recipe.id] != null}   // if there's an objectId, this recipe has already been saved
+                        objectId={objectIds[recipe.id] || null}     // if recipe has not been saved, set objectId to null
+                />
+            ));
+            
+            sendCards(cards);
+            setHasSentCards(true);
+        }
+    }, [recipes, objectIds, sendCards, hasSentCards]);
+    
+
+    {/*
+    return (
+        <div>
+            {recipeCards}
+        </div>
+    );
+    */}
+
+    {/*
     return (
         <div className="recipe-list">
             {recipes.map((recipe) => (
@@ -49,6 +91,8 @@ const RecipeList = ({ recipes, onViewDetails }) => {
             ))}
         </div>
     );
+    */}
+    
 };
 
 export default RecipeList;

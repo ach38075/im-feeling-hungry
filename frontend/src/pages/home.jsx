@@ -69,7 +69,13 @@ export function Home () {
 	setFilters({...filters, cookTime: value == "" ? "" : Math.max(0, Number(value))});	
     };
 
+	// Plate recipe cards
+	const [recipeCards, setRecipeCards] = useState([]);
 	const [showCards, setShowCards] = useState(false);
+	const handleReceiveCards = (cards) => {
+		setRecipeCards(cards);
+		setShowCards(true);
+	};
 
 	//handles Find Recipes button toggle
     const handleSearch = async () => { 
@@ -120,6 +126,7 @@ export function Home () {
       {/*<Disk />*/}
 	  {/*<Test />*/}
 	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
+	  <Disk {...(showCards ? { cards: recipeCards } : {})} />
 
       {!selectedRecipeId ? (
 	  <>
@@ -178,6 +185,7 @@ export function Home () {
 		  <RecipeList 
 		      recipes={recipes} 
 		      onViewDetails={handleViewDetails}
+			  sendCards={handleReceiveCards}
 		  />
               )}
           </>
