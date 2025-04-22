@@ -7,7 +7,6 @@ import Filters from "../components/Filters";
 import { getRecipes } from "../api";
 //import RecipePreview from "../api";
 import Disk from "../components/Disk.jsx";
-import Test from "../components/Test.jsx";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
@@ -70,7 +69,7 @@ export function Home () {
     };
 
 	// Plate recipe cards
-	const [recipeCards, setRecipeCards] = useState([]); //might be able to get rid of this?
+	const [recipeCards, setRecipeCards] = useState([]); 
 	const [showCards, setShowCards] = useState(false);
 	const handleReceiveCards = (cards) => {
 		setRecipeCards(cards);
@@ -126,7 +125,7 @@ export function Home () {
       {/*<Disk />*/}
 	  {/*<Test />*/}
 	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
-	  
+	  <Disk {...(showCards ? { cards: recipeCards } : {})} />
 
       {!selectedRecipeId ? (
 	  <>

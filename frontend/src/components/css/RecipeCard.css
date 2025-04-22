@@ -1,0 +1,80 @@
+/* Recipe Card Styles */
+.recipe-card {
+    background-color: #373847;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /*height: 100%;*/
+    position: absolute;
+    width: 368px;
+    height: 451px;
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-80px);
+  }
+  
+  .recipe-card h2 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
+  
+  .recipe-card img {
+    /*width: 100%;*/
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .recipe-card p {
+    padding: 0.5rem 1rem;
+    color: #c26f84;
+    font-style: italic;
+    margin: 0.5rem 0;
+  }
+  
+  .recipe-card-actions {
+    padding: 1rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .view-details-button {
+    background-color: #c26f84;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .view-details-button:hover {
+    background-color: #ef99af;
+    color: #000000;
+  }
+  
+  .external-link {
+    color: #e6c8c8;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: inline-block;
+  }
+  
+  .external-link:hover {
+    text-decoration: underline;
+  }
+  
+  .save-recipe-button.saved {
+    background-color: #ad4444;
+    color: white;
+  }
+  .save-recipe-button.saved:hover {
+    background-color: white;
+    color: rgb(174, 0, 0);
+    font-weight: bold;
+  }
