@@ -40,17 +40,22 @@ const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
     const [hasSentCards, setHasSentCards] = useState(false);
     useEffect(() => {
         if (!hasSentCards && sendCards && recipes.length > 0) {
-            const cards = recipes.map((recipe, index) => (
+            
+            const cards = recipes.map((recipe, index) => {
+                const id = index + 1;
+                
+                return (
                 <RecipeCard 
-                        id ={index + 1}
-                        Name={`recipe-card${index + 1}`}
+                        id ={id}
+                        Name={`recipe-card${id}`}
                         key={recipe.id} 
                         recipe={recipe} 
                         onViewDetails={onViewDetails}
                         saveStatus={objectIds[recipe.id] != null}   // if there's an objectId, this recipe has already been saved
                         objectId={objectIds[recipe.id] || null}     // if recipe has not been saved, set objectId to null
                 />
-            ));
+                );
+            });
             
             sendCards(cards);
             setHasSentCards(true);

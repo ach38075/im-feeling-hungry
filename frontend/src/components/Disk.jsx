@@ -1,26 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './css/Disk.css';
-
+import RArrow from '../assets/rArrow.png'
 
 const Disk = ({ cards }) => {
 
-  const rightShift = () => {
+  const [rcards, setCards] = useState(cards);
+  
+  useEffect(() => {
+    if (cards) {
+      setCards(cards);
+    }
+  }, [cards]);
 
+  const rightShift = () => {
+    console.log("right shift");
     setCards((prevCards) => 
-      prevCards.map((card) => ({
-        ...card, // Copy card properties
-        id: card.id + 1 > 6 ? 1 : card.id + 1,
-      }))
+      prevCards.map((card) => {
+      const currentId = card.props.id;
+      const newId = currentId + 1 > 6 ? 1 : currentId + 1;
+      const newName = 'recipe-card' + newId;
+
+      console.log(`Shifting card from ID ${card.props.Name} to ${newName}`);
+
+      return React.cloneElement(card, {
+        ...card.props,
+        id: newId,
+        Name: newName,
+      });
+     })
     );
   }; 
   
   const leftShift = () => {
-
+    console.log("left shift");
     setCards((prevCards) => 
-      prevCards.map((card) => ({
-        ...card, // Copy card properties
-        id: card.id - 1 < 1 ? 6 : card.id - 1,
-      }))
+      prevCards.map((card) => {
+
+        const currentId = card.props.id;
+        const newId = currentId - 1 < 1 ? 6 : card.props.id - 1;
+        const newName = 'recipe-card' + newId;
+
+        return React.cloneElement(card, {
+          ...card.props,
+          id: newId,
+          Name: newName,
+        })
+      })
     );
   };   
 
@@ -30,11 +55,13 @@ const Disk = ({ cards }) => {
     <div className="middle">
      
 
-    {cards?.map((card) => card)}
+    {rcards?.map((card) => card)}
     
-    <button className="left" onClick={leftShift}>Scroll Cards Left</button>
-    <button className="right" onClick={rightShift}>Scroll Cards Right</button>
+    
     </div> {/*"middle"*/}
+      <button className="left" onClick={leftShift} style={{ visibility: rcards?.length > 0 ? 'visible' : 'hidden' }}></button>
+      <button className="right" onClick={rightShift} style={{ visibility: rcards?.length > 0 ? 'visible' : 'hidden' }}></button>
+
     </div> {/*"plate"*/}
 
     {/*
