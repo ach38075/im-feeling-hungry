@@ -1,12 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import RecipeCard from './RecipeCard';
 import './css/Disk.css';
 
-// TODO: before meeting
-// - Add carousel functionallity
-
-const RADIUS_X = 500; //horizontal radius
-const RADIUS_Y = 200;
 
 const Disk = ({ cards }) => {
 
