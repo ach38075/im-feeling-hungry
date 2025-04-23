@@ -1,5 +1,8 @@
-/*export const API_KEY = "59b4fe15ba9b4fec86b5be4313200724";*/
+/* all valid keys, must swap between when one runs out
+   TODO: implement way to auto swap to another key when one is out */
 export const API_KEY = "0eb27123386c42b19046163250ba48aa";
+// export const API_KEY = "59b4fe15ba9b4fec86b5be4313200724";
+// export const API_KEY = "336f05f01b06462b8b7cb4ec5172840f";
 const API_URL = "https://api.spoonacular.com/recipes";
 
 export const getRecipes = async (ingredients, filters) => {

@@ -36,14 +36,16 @@ export function NavBar() {
 
     return (
         <div className="container">
+            <div className="button-Container">
             <Link to="/">
-                <button>Home</button>
+                <button className="home-BTN">Home</button>
             </Link>
             <Link to="/login">
                 {loginVisible && (
-                    <button>Login</button>
+                    <button className="login-BTN">Login</button>
                 )}
             </Link>
+            </div>
             {logoutVisible && (
                 <div className='user_display'>
                     <h4 className ='user_greeting'>

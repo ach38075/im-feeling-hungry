@@ -1,6 +1,27 @@
 .container {
     margin: auto;
     padding-bottom: 2em;
+    background-color: rgb(207, 0, 0);
+}
+
+.home-BTN {
+    padding: 12px 28px 12px 28px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.login-BTN {
+    
+    padding: 12px 28px 12px 28px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.button-Container {
+    display: flex;
+    margin-top: 30px;
+    gap: 40px;
+    align-items: center;
 }
 
 .user_greeting {

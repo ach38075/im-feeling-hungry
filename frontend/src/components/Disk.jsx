@@ -1,32 +1,48 @@
 import React, { useState, useRef, useEffect } from 'react';
-import RecipeCard from './RecipeCard';
 import './css/Disk.css';
-
-// TODO: before meeting
-// - Add carousel functionallity
-
-const RADIUS_X = 500; //horizontal radius
-const RADIUS_Y = 200;
 
 const Disk = ({ cards }) => {
 
-  const rightShift = () => {
+  const [rcards, setCards] = useState(cards);
+  
+  useEffect(() => {
+    if (cards) {
+      setCards(cards);
+    }
+  }, [cards]);
 
+  const rightShift = () => {
+    console.log("right shift");
     setCards((prevCards) => 
-      prevCards.map((card) => ({
-        ...card, // Copy card properties
-        id: card.id + 1 > 6 ? 1 : card.id + 1,
-      }))
+      prevCards.map((card) => {
+      const currentId = card.props.id;
+      const newId = currentId + 1 > 6 ? 1 : currentId + 1;
+      const newName = 'recipe-card' + newId;
+
+      return React.cloneElement(card, {
+        ...card.props,
+        id: newId,
+        Name: newName,
+      });
+     })
     );
   }; 
   
   const leftShift = () => {
-
+    console.log("left shift");
     setCards((prevCards) => 
-      prevCards.map((card) => ({
-        ...card, // Copy card properties
-        id: card.id - 1 < 1 ? 6 : card.id - 1,
-      }))
+      prevCards.map((card) => {
+
+        const currentId = card.props.id;
+        const newId = currentId - 1 < 1 ? 6 : card.props.id - 1;
+        const newName = 'recipe-card' + newId;
+
+        return React.cloneElement(card, {
+          ...card.props,
+          id: newId,
+          Name: newName,
+        })
+      })
     );
   };   
 
@@ -35,24 +51,21 @@ const Disk = ({ cards }) => {
     <div className="plate">
     <div className="middle">
      
-     {/*
-    {cards.map((card) => {
 
-      console.log(card.cardName);
-      return(
-        <RecipeCard className={`${card.cardName + card.id}`} title={`${card.title}`} key={`${card.id}`}/>
-      );
-    })} 
-    */}
+    {rcards?.map((card) => card)}
     
-    <button className="left" onClick={leftShift}>Scroll Cards Left</button>
-    <button className="right" onClick={rightShift}>Scroll Cards Right</button>
+    
     </div> {/*"middle"*/}
+      <button className="left" onClick={leftShift} style={{ visibility: rcards?.length > 0 ? 'visible' : 'hidden' }}></button>
+      <button className="right" onClick={rightShift} style={{ visibility: rcards?.length > 0 ? 'visible' : 'hidden' }}></button>
+
     </div> {/*"plate"*/}
 
+    {/*
     <div className="plate2">
     <div className="middle2"></div>
     </div>
+    */}
 
     {/*unnamed*/}
     </div> 

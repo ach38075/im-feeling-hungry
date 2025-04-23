@@ -7,7 +7,6 @@ import Filters from "../components/Filters";
 import { getRecipes } from "../api";
 //import RecipePreview from "../api";
 import Disk from "../components/Disk.jsx";
-import Test from "../components/Test.jsx";
 
 export function Home () {
     const [ingredients, setIngredients] = useState([
@@ -72,11 +71,19 @@ export function Home () {
     const handleMealTypeChange = (e) => {
 	setFilters({ ...filters, mealType: e.target.value });
     };
-
+	
     const handleCuisineChange = (e) => {
 	setFilters({ ...filters, cuisine: e.target.value });
     };
 
+	// Plate recipe cards
+	const [recipeCards, setRecipeCards] = useState([]); 
+	
+	const handleReceiveCards = (cards) => {
+		setRecipeCards(cards);
+		setShowCards(true);
+	};
+	
     const handleSearch = async () => {
 	setHasSearchedRecipes(true);
 
@@ -121,6 +128,9 @@ export function Home () {
     <div className="app-container">
 	<h1>i'm feeling hungry...</h1>
 	{handleIntroText()}
+	
+	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
+	  <Disk {...(showCards ? { cards: recipeCards } : {})} />
 
 	  {!selectedRecipeId ? (
 	  <>
@@ -206,20 +216,21 @@ export function Home () {
 	      </div>
 
 	      <button className="searchButton" onClick={handleSearch} disabled={loading}>                    
-                {loading ? "Searching..." : "Find Recipes"}                                 
-            </button>   
-
-            {error && <p className="error-message">{error}</p>}
-
-            {loading ? (
-	  <p>Finding recipes for you...</p>
-            ) : (
-	  <RecipeList 
-	      recipes={recipes} 
-	      onViewDetails={handleViewDetails}
-	  />
-            )}
-        </>
+                  {loading ? "Searching..." : "Find Recipes"}                                 
+              </button>   
+	      
+              {error && <p className="error-message">{error}</p>}
+              
+              {loading ? (
+		  <p>Finding recipes for you...</p>
+              ) : (
+		  <RecipeList 
+		      recipes={recipes} 
+		      onViewDetails={handleViewDetails}
+			  sendCards={handleReceiveCards}
+		  />
+              )}
+          </>
       ) : (
           <RecipeDetails 
               recipeId={selectedRecipeId} 

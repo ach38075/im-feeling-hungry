@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { RefreshContext } from '../context/RefreshContext';
+import './css/RecipeCard.css'
 
-const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
+const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId, Name}) => {
     const [error, setError] = useState("");
     const [isSaved, setIsSaved] = useState(false);
     const { setRefresh } = useContext(RefreshContext);
@@ -80,7 +81,8 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
       };
 
     return (
-        <div className="recipe-card">
+        <div className={`recipe-card ${Name}`}>
+            
             <h2>{recipe.title}</h2>
             <img src={recipe.image} alt={recipe.title} />
             
@@ -101,6 +103,7 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId}) => {
                 
             </div>
         </div>
+        
     );
 };
 
