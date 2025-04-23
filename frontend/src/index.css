@@ -69,9 +69,9 @@
     gap: 5px;
     justify-content: space-between;
     background-color: #ffffff;
-    border-radius: 4px;
+    border-radius: 4px; 
     padding-bottom: 5px;
-    {/* box-shadow: 5px 5px blur #000000; */}
+    /* box-shadow: 5px 5px blur #000000; */
 }
 
 .filter-group {
@@ -195,7 +195,7 @@ hr.solid {
     margin-left: 30px;
     margin-bottom: 8px;
     padding: 4px;
-    width: 100%;
+    width: 80%;
     box-sizing: border-box;
 }
  
@@ -258,6 +258,9 @@ button {
 
 .searchButton {
     margin-bottom: 20px;
+    padding: 12px 28px 12px 28px;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
 .removeButton {

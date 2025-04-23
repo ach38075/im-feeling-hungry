@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './css/Disk.css';
-import RArrow from '../assets/rArrow.png'
 
 const Disk = ({ cards }) => {
 
@@ -19,8 +18,6 @@ const Disk = ({ cards }) => {
       const currentId = card.props.id;
       const newId = currentId + 1 > 6 ? 1 : currentId + 1;
       const newName = 'recipe-card' + newId;
-
-      console.log(`Shifting card from ID ${card.props.Name} to ${newName}`);
 
       return React.cloneElement(card, {
         ...card.props,
