@@ -13,7 +13,7 @@
 }
 
 .recipe-card:hover {
-  transform: translateY(-80px);
+  transform: scale(1.02);
 }
 
 .recipe-card h2 {

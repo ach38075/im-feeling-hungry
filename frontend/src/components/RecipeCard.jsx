@@ -70,9 +70,12 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId, Name, layout 
   };
 
   const layoutClass = layout === "disk" ? Name : "card-layout";
+/*<div className={`recipe-card ${layoutClass}`}>*/
+/*<div className={`recipe-card ${Name}`}>*/
 
   return (
     <div className={`recipe-card ${layoutClass}`}>
+    
       <h2>{recipe.title}</h2>
       <img src={recipe.image} alt={recipe.title} className="recipe-image" />
       <div className="recipe-card-actions">

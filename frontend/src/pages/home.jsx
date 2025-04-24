@@ -130,11 +130,10 @@ export function Home () {
 	<h1>i'm feeling hungry...</h1>
 	{handleIntroText()}
 	
-	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
-
 	  {!selectedRecipeId ? ( //if not showing a recipe in detail
 	  <>
 	  	<Disk {...(showCards ? { cards: recipeCards } : {})} />
+
 	      <div className="layout">
 	  	  <div className="left-col">
 	  	      <div className="flex-container">

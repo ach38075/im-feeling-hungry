@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/Disk.css';
 
-// TODO: make sure plate disappears when view recipe details is clicked
+/*hitting saved recipes button over and over shows the home page very briefly */
 const Disk = ({ cards }) => {
   const [rcards, setCards] = useState(cards);
   const [shift1, setShift1] = useState(0);
