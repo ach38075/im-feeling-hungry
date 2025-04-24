@@ -19,51 +19,95 @@
         position: absolute;
     }
 
-    .recipe-card1 {
+    /*1*/
+    .recipe-card2 {
 
         bottom: -150px; /* y-coord */
         right: 120px; /* x-coord */
-        /*bottom: 320px;
-        right: -100px;*/
+        z-index: 8;
+    }
+
+    /*.recipe-card4 {*/
+    .recipe-card8 {
+        /*7*/
+        bottom: 350px;
+        right: 120px;
+        z-index: 1;
+    }
+
+    /*.recipe-card2 {*/
+    .recipe-card4 {
+        /*3*/
+        bottom: -80px;
+        right: 620px;
         z-index: 6;
     }
 
-    .recipe-card2 {
-
-        bottom: -80px;
-        right: 620px;
-        z-index: 5;
-    }
-
-    .recipe-card6 {
-
+    /*.recipe-card6 {*/
+    .recipe-card12 {
+        /*11*/
         bottom: -80px;
         left: 620px;
+        z-index: 6;
+    }
+    
+    /*.recipe-card3 {*/
+    .recipe-card6 {
+        /*5*/
+        bottom: 300px;
+        right: 570px;
+        z-index: 4;
+    }
+
+    /*.recipe-card5 {*/
+    .recipe-card10 {
+        /*9*/
+        bottom: 300px;
+        left: 570px;
+        z-index: 4;
+    }
+
+    /*-------*/
+
+    .recipe-card3 {
+        bottom: -120px;
+        right: 330px;
         z-index: 5;
     }
 
-    .recipe-card3 {
-
-        bottom: 300px;
-        right: 570px;
- 
+    .recipe-card13 {
+        bottom: -120px; 
+        left: 330px;
+        z-index: 5;
     }
+
+    /*-------*/
 
     .recipe-card5 {
- 
-        bottom: 300px;
-        left: 570px;
-  
+        bottom: 150px; 
+        right: 600px;
+        z-index: 3;
     }
 
-    .recipe-card4 {
-    
-        /*bottom: 350px;
-        right: 120px;*/
-        bottom: 350px;
-        right: 120px;
+    .recipe-card11 {
+        bottom: 150px; 
+        left: 600px;
+        z-index: 3;
     }
-    
+
+    /*---------*/
+
+    .recipe-card7 {
+        bottom: 320px; 
+        left: -100px;
+        z-index: 2;
+    }
+
+    .recipe-card9 {
+        bottom: 320px;
+        right: -100px;
+        z-index: 2;
+    }    
     
 }
 
