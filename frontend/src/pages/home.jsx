@@ -131,10 +131,10 @@ export function Home () {
 	{handleIntroText()}
 	
 	  {/*<Disk {...(showCards ? { cards: recipeCards } : {})} />*/}
-	  <Disk {...(showCards ? { cards: recipeCards } : {})} />
 
-	  {!selectedRecipeId ? (
+	  {!selectedRecipeId ? ( //if not showing a recipe in detail
 	  <>
+	  	<Disk {...(showCards ? { cards: recipeCards } : {})} />
 	      <div className="layout">
 	  	  <div className="left-col">
 	  	      <div className="flex-container">
@@ -218,7 +218,7 @@ export function Home () {
 
 	      <button className="searchButton" onClick={handleSearch} disabled={loading}>                    
                   {loading ? "Searching..." : "Find Recipes"}                                 
-              </button>   
+          </button>   
 	      
               {error && <p className="error-message">{error}</p>}
               

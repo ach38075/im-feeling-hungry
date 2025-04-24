@@ -42,7 +42,7 @@ const RecipeList = ({ recipes, onViewDetails, sendCards, layout = "card"}) => {
         if (!hasSentCards && sendCards && recipes.length > 0) {
             
             const cards = recipes.map((recipe, index) => {
-                const id = index + 1;
+                const id = (index + 1) * 2;
                 
                 return (
                 <RecipeCard 
