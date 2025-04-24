@@ -1,117 +1,104 @@
 .plate {
-    width: 1800px;
-    height: 680px;
-    position: relative;
-    background-color: #d6d1d1;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 350px;
-    margin-bottom: 100px;
-    
-
-    .middle {
-        width: 600px;
-        height: 250px;
-        background-color: #aea9a9;
-        border-radius: 50%;
-        position: absolute;
-    }
-
-    .recipe-card1 {
-
-        bottom: -150px; /* y-coord */
-        right: 120px; /* x-coord */
-        /*bottom: 320px;
-        right: -100px;*/
-        z-index: 6;
-    }
-
-    .recipe-card2 {
-
-        bottom: -80px;
-        right: 620px;
-        z-index: 5;
-    }
-
-    .recipe-card6 {
-
-        bottom: -80px;
-        left: 620px;
-        z-index: 5;
-    }
-
-    .recipe-card3 {
-
-        bottom: 300px;
-        right: 570px;
- 
-    }
-
-    .recipe-card5 {
- 
-        bottom: 300px;
-        left: 570px;
-  
-    }
-
-    .recipe-card4 {
-    
-        /*bottom: 350px;
-        right: 120px;*/
-        bottom: 350px;
-        right: 120px;
-    }
-    
-    
+  width: 1800px;
+  height: 680px;
+  position: relative;
+  background-color: #d6d1d1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 350px;
+  margin-bottom: 100px;
 }
 
+/* 💿 Center circle */
+.middle {
+  width: 600px;
+  height: 250px;
+  background-color: #aea9a9;
+  border-radius: 50%;
+  position: absolute;
+}
+
+/* 🎯 Individual card positions */
+.recipe-card1 {
+  bottom: -150px;
+  right: 120px;
+  z-index: 6;
+}
+
+.recipe-card2 {
+  bottom: -80px;
+  right: 620px;
+  z-index: 5;
+}
+
+.recipe-card6 {
+  bottom: -80px;
+  left: 620px;
+  z-index: 5;
+}
+
+.recipe-card3 {
+  bottom: 300px;
+  right: 570px;
+}
+
+.recipe-card5 {
+  bottom: 300px;
+  left: 570px;
+}
+
+.recipe-card4 {
+  bottom: 350px;
+  right: 120px;
+}
+
+/* Arrows */
 .right {
-    position: absolute;
-    background-image: url('../../assets/rArrow.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    
-    bottom: 300px;
-    right: 80px;
-    width: 81px;
-    height: 81px;
-    border-radius: 80%;
+  position: absolute;
+  background-image: url('../../assets/rArrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  bottom: 300px;
+  right: 80px;
+  width: 81px;
+  height: 81px;
+  border-radius: 80%;
 }
 
 .left {
-    position: absolute;
-    background-image: url('../../assets/LArrow.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    bottom: 300px;
-    left: 80px;
-    width: 81px;
-    height: 81px;
-    border-radius: 50%;
-    
+  position: absolute;
+  background-image: url('../../assets/LArrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  bottom: 300px;
+  left: 80px;
+  width: 81px;
+  height: 81px;
+  border-radius: 50%;
 }
 
+/* 🍽️ Optional second plate */
 .plate2 {
-    width: 1000px;
-    height: 400px;
-    position: relative;
-    background-color: #a8a8a8;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
-    margin-top: 150px;
+  width: 1000px;
+  height: 400px;
+  position: relative;
+  background-color: #a8a8a8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  margin-top: 150px;
+}
 
-    .middle2 {
-        width: 500px;
-        height: 150px;
-        background-color: #ba0c00;
-        border-radius: 50%;
-        position: absolute;
-    }
+.middle2 {
+  width: 500px;
+  height: 150px;
+  background-color: #ba0c00;
+  border-radius: 50%;
+  position: absolute;
 }

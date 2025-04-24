@@ -2,20 +2,25 @@
 
 .saved-container {
     display: block;
+    padding: 2rem;
 }
 
 .saved-container h1 {
     color: white;
     margin-bottom: 2em;
+    text-align: center;
 }
 
 .recipes {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2em;
+    justify-content: center;
 }
 
 .no-recipes {
-    grid-column: span 3;
+    grid-column: 1 / -1;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
 }
-

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 
 
-const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
+const RecipeList = ({ recipes, onViewDetails, sendCards, layout = "card"}) => {
     const [objectIds, setObjectIds] = useState({}); // { recipeId: objectId }
 
     useEffect(() => {
@@ -46,6 +46,7 @@ const RecipeList = ({ recipes, onViewDetails, sendCards }) => {
                 
                 return (
                 <RecipeCard 
+                        layout={layout}
                         id ={id}
                         Name={`recipe-card${id}`}
                         key={recipe.id} 

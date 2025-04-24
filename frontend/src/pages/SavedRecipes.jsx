@@ -69,6 +69,7 @@ export function SavedRecipes() {
               ) : (
                 recipes.map((recipe) => (
                   <RecipeCard
+                    layout="card"
                     key={recipe.recipeNum}
                     recipe={recipe}
                     onViewDetails={() => setSelectedRecipeId(recipe.recipeNum)}

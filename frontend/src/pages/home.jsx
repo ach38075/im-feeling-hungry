@@ -85,7 +85,8 @@ export function Home () {
 	};
 	
     const handleSearch = async () => {
-	setHasSearchedRecipes(true);
+		setSelectedRecipeId(null); 
+		setHasSearchedRecipes(true);
 
 	if (validIngredients.length === 0) {
 	  setError("Please enter at least one ingredient");
@@ -225,6 +226,7 @@ export function Home () {
 		  <p>Finding recipes for you...</p>
               ) : (
 		  <RecipeList 
+			  layout="card"
 		      recipes={recipes} 
 		      onViewDetails={handleViewDetails}
 			  sendCards={handleReceiveCards}
