@@ -70,8 +70,6 @@ const RecipeCard = ({ recipe, onViewDetails, saveStatus, objectId, Name, layout 
   };
 
   const layoutClass = layout === "disk" ? Name : "card-layout";
-/*<div className={`recipe-card ${layoutClass}`}>*/
-/*<div className={`recipe-card ${Name}`}>*/
 
   return (
     <div className={`recipe-card ${layoutClass}`}>

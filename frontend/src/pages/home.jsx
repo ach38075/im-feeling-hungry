@@ -5,7 +5,6 @@ import RecipeList from "../components/RecipeList";
 import RecipeDetails from "../components/RecipeDetails";
 import Filters from "../components/Filters";
 import { getRecipes } from "../api";
-//import RecipePreview from "../api";
 import Disk from "../components/Disk.jsx";
 
 export function Home () {
@@ -36,8 +35,8 @@ export function Home () {
 	if (!hasSearchedRecipes && recipes.length === 0 && allNamesEmpty) {
 	    return (
 		<p>
-		    Plate empty. Enter some ingredients under <br />
-		    'Grocery List' to start finding recipes!
+		    Plate empty -- Scroll down to find your Grocery List, <br />
+		    and enter a few ingredients to start finding recipes!
 		</p>
 	    );
 	}
@@ -98,7 +97,6 @@ export function Home () {
 	  setError(null);
 
 	  const { results } = await getRecipes(validIngredients.join(','), filters);
-	  console.log("🐔 Raw results in home.jsx:", results);
 
 	  setRecipes(results.slice(0, 6));
 	  setSelectedRecipeId(null);

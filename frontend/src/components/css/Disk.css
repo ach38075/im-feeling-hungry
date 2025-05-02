@@ -1,6 +1,6 @@
 .plate {
-    width: 1800px;
-    height: 680px;
+    width: 1200px;
+    height: 500px;
     position: relative;
     background-color: #d6d1d1;
     border-radius: 50%;
@@ -9,59 +9,61 @@
     justify-content: center;
     margin-top: 350px;
     margin-bottom: 100px;
-    
+
     .middle {
-        width: 600px;
-        height: 250px;
+        width: 400px;
+        height: 180px;
         background-color: #aea9a9;
         border-radius: 50%;
         position: absolute;
     }
 
     /*middle card*/    
-    .recipe-card2 {
+    .recipe-card2 { /* bottom middle */
 
-        bottom: -150px; /* y-coord */
-        right: 120px; /* x-coord */
+        bottom: -220px; /* y-coord */
+        right: 60px; /* x-coord */
         z-index: 8;
     }
 
-    .recipe-card8 {
+    .recipe-card8 { /* top middle */
         
-        bottom: 350px;
-        right: 120px;
+        bottom: 200px;
+        right: 60px;
         z-index: 1;
     }
 
-    .recipe-card4 {
+    .recipe-card4 { /* bottom left */
         
-        bottom: -80px;
-        right: 620px;
+        bottom: -150px;
+        right: 420px;
         z-index: 6;
     }
 
-    .recipe-card12 {
+    .recipe-card12 { /* bottom right */
         
-        bottom: -80px;
-        left: 620px;
+        bottom: -150px;
+        left: 420px;
         z-index: 6;
     }
     
-    .recipe-card6 {
+    .recipe-card6 { /* top left */
         
-        bottom: 300px;
-        right: 570px;
+        bottom: 170px;
+        right: 385px;
         z-index: 4;
     }
+ 
+    /* only hover two recipes in the back whose buttons are hidden */
 
     .recipe-card6:hover {
         transform: translateY(-80px);
     }
 
-    .recipe-card10 {
+    .recipe-card10 { /* top right */
         
-        bottom: 300px;
-        left: 570px;
+        bottom: 170px;
+        left: 385px;
         z-index: 4;
     }
 
@@ -69,46 +71,42 @@
         transform: translateY(-80px);
     }
 
-    /*-------*/
-
-    .recipe-card3 {
-        bottom: -120px;
-        right: 330px;
-        z-index: 5;
+    /* Cards in motion when clicking arrows */
+    .recipe-card3 { /* bottom left*/
+        bottom: -200px; 
+        right: 230px; 
+        z-index: 8;
     }
 
-    .recipe-card13 {
-        bottom: -120px; 
-        left: 330px;
-        z-index: 5;
+    .recipe-card13 { /* bottom right*/
+        bottom: -200px; 
+        left: 230px; 
+        z-index: 8;
     }
 
-    /*-------*/
-
-    .recipe-card5 {
-        bottom: 150px; 
-        right: 600px;
-        z-index: 3;
+    .recipe-card5 { /* left */
+        bottom: 0px;
+        right: 420px;
+        z-index: 6;
     }
 
-    .recipe-card11 {
-        bottom: 150px; 
-        left: 600px;
-        z-index: 3;
+    .recipe-card11 {/* right */
+        bottom: 0px;
+        left: 420px;
+        z-index: 4;
     }
 
-    /*---------*/
-
-    .recipe-card7 {
-        bottom: 320px; 
-        left: -100px;
-        z-index: 2;
+    .recipe-card7 {/* top left */
+        
+        bottom: 200px;
+        left: -110px;
+        z-index: 4;
     }
 
-    .recipe-card9 {
-        bottom: 320px;
-        right: -100px;
-        z-index: 2;
+    .recipe-card9 {/* top right */
+        bottom: 200px;
+        right: -110px;
+        z-index: 1;
     }    
     
     /* Arrows */
@@ -118,8 +116,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
-    bottom: 300px;
-    right: 80px;
+    bottom: 220px;
+    right: 10px;
     width: 81px;
     height: 81px;
     border-radius: 80%;
@@ -135,8 +133,8 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: transparent;
-    bottom: 300px;
-    left: 80px;
+    bottom: 220px;
+    left: 10px;
     width: 81px;
     height: 81px;
     border-radius: 50%;

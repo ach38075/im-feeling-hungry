@@ -1,9 +1,7 @@
-/* Login.css */
-
 .container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center; 
+    align-items: center; 
     text-align: center;
 }
 
@@ -16,26 +14,26 @@
   width: 100%;
   max-width: 450px;
   background-color: white;
-  color: black;
+  color:#373847;
 }
 
 .container h1, .registerLink, .btn {
-  /* font-family: "Roboto", sans-serif; */
   line-height: normal;
   text-align: center;
-  color: black;
+  color: #373847;
 }
 
 .container h1 {
   font-size: 3em;
   margin-bottom: 1.5rem;
-  color: black;
+  color: #373847;
 }
 
 .container h4 {
   padding-top: 1em;
   padding-bottom: 1em;
   font-weight: 500;
+  color: #373847;
 }
 
 .inputBox {
@@ -48,6 +46,7 @@
   text-align: left;
   padding: 3px;
   padding-left: 2.2em;
+  color: #373847;
 }
 
 .inputBox input {
@@ -58,7 +57,7 @@
   border-radius: 4px;
   font-size: 16px;
   background: #f7e1ea;
-  color: black;
+  color: #373847;
 }
 
 
@@ -67,10 +66,11 @@
   justify-content: space-between;
   color: white;
   margin-left: 2.1em;
+  color: #3167FB;
 }
 
 .registerLink {
-  color: #000;
+  color: #373847;
   margin-top: 2em;
 }
 
@@ -85,11 +85,16 @@
 }
 
 .btn {
-  background-color: #5bf181;
+  background-color: #9aebaf;
   border-radius: 6px;
   margin-top: 2em;
   font-size: 1.25em;
   padding: 0.5em 2em 0.6em 2em;
-  color: black;
+  color: #373847;
   font-weight: 600;
+}
+
+.btn:hover {
+  background-color: #78bf8b;   /* hover color */
+  color: #373847;
 }

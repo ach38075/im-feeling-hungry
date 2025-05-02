@@ -6,6 +6,7 @@
 .user_greeting {
     display: inline;
     margin: 1em;
+    color: #373847;
 }
 
 .user_display {
@@ -15,4 +16,5 @@
 
 .user_display button {
     margin-left: 1em;
+    
 }

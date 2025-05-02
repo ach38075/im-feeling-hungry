@@ -116,17 +116,15 @@ const Disk = ({ cards }) => {
   return (
     <div className="plate">
       <div className="middle">
-        {rcards?.map((card) =>
-          React.cloneElement(card, {
-            ...card.props,
-            layout: "disk", // 🔁 always apply disk layout
-            className: `recipe-card ${card.props.Name}`,
-          })
-        )}
+  {rcards?.map((card) =>
+    React.cloneElement(card, {
+      ...card.props,
+      layout: "disk", // ensures it's styled correctly
+      className: `recipe-card ${card.props.Name}`,
+    })
+  )}
+</div>
 
-      {rcards?.map((card) => card)}
-    
-    </div> {/*"middle"*/}
 
       <button 
         className="left" 

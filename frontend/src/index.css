@@ -5,8 +5,7 @@
 
   color-scheme: light dark;
   color: #fff5ec;
-  background-color: #b1232f;
-  /* background-color: #a40512; */
+  background-color: #ffc2c2;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -72,7 +71,6 @@
     background-color: #ffffff;
     border-radius: 4px; 
     padding-bottom: 5px;
-    /* box-shadow: 5px 5px blur #000000; */
 }
 
 .dietary-container {
@@ -105,7 +103,7 @@
 .allergy-container label {
   font-size: 1.1em;
   font-weight: bold;
-  color: #000000;
+  color: #373847;
   text-align: left;
   padding-left: 30px;
   margin-bottom: 2px;
@@ -131,7 +129,7 @@
 .allergy-container label {
   font-weight: bold;
   font-size: 1.2em;
-  color: #000000;
+  color: #373847;
   margin-left: 30px;
   margin-top: 10px;
   padding-left: 0;
@@ -183,7 +181,7 @@
   padding-left: 30px;
   margin-bottom: 6px; /* Adds space between label and box */
   font-weight: bold;
-  color: #000000;
+  color: #373847;
 }
 
 .meal-type-container select,
@@ -203,7 +201,7 @@
 label.cookTime,
 label.appliances,
 label.diet {
-    color: #000000;
+    color: #2b1111;
     padding-left: 30px;
     margin-top: 10px;
     margin-bottom: 0;
@@ -292,7 +290,7 @@ hr.solid {
     left: 5px;
     height: 9px;
     width: 4px;
-    border: 2px #000000 solid;
+    border: 2px #373847 solid;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
@@ -350,7 +348,14 @@ h1 {
     font-family: "Times New Roman", system-ui, Georgia, Garamond, Arial, serif;
     font-size: 3.2em;
     line-height: 1.1;
-    color: #fff5ec;
+    color: #373847;
+}
+
+p {
+  font-family: "Times New Roman", system-ui, Georgia, Garamond, Arial, serif;
+  font-size: 1.2em;
+  line-height: 1.3;
+  color: #373847;
 }
 
 input::placeholder {
@@ -367,8 +372,8 @@ select {
 }
 select option:checked {
   font-weight: 500;
-  background-color: #f898b8;  /* Background color when selected */
-  color: #000000;
+  background-color: #f898b8;  
+  color: #373847;
 }
 
 button {
@@ -379,7 +384,7 @@ button {
   font-weight: 400;
   font-family: inherit;
   background-color: #ffffff;
-  color: #373847;
+  color: #373847;;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -389,6 +394,26 @@ button {
     padding: 12px 28px 12px 28px;
     font-size: 20px;
     border-radius: 5px;
+    .container {
+    margin: auto;
+    padding-bottom: 2em;
+}
+
+.user_greeting {
+    display: inline;
+    margin: 1em;
+    color: #373847;
+}
+
+.user_display {
+    display: inline;
+    margin-left: 5em;
+}
+
+.user_display button {
+    margin-left: 1em;
+    
+}
 }
 
 .removeButton {
@@ -423,20 +448,14 @@ button {
 
 .addIngredientButton:hover {
   background-color: #d9d9d9;
-  color: #000000;
+  color: #373847;
 }
 
 
 button:hover {
   background-color: #d9d9d9;
-  color: #000000
+  color: #373847
 }
-
-/*button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}*/
-
 
 .recipe-list {
   display: grid;
@@ -446,7 +465,6 @@ button:focus-visible {
   max-width: 1200px;
 }
 
-/* Recipe Detail Styles */
 .recipe-detail {
   background-color: #373847;
   border-radius: 8px;
@@ -482,7 +500,6 @@ button:focus-visible {
   color: white;
 }
 
-/* ready in.. serves*/
 .recipe-meta {
   display: flex;
   gap: 1.5rem;
@@ -515,13 +532,12 @@ button:focus-visible {
   margin-bottom: 1rem;
 }
 
-/* Ensure ingredient and instruction lists are left-aligned */
 .recipe-ingredients ul,
 .recipe-instructions ol {
   padding-left: 1.5rem;
   line-height: 1.6;
-  text-align: left; /* Forces left alignment */
-  list-style-position: inside; /* Keeps bullets/numbers aligned */
+  text-align: left; 
+  list-style-position: inside; 
 }
 
 .recipe-instructions li {
@@ -554,5 +570,3 @@ button:focus-visible {
     padding: 1.5rem;
   }
 }
-
-/* PLATE CSS */

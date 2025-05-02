@@ -1,8 +1,10 @@
-/* all valid keys, must swap between when one runs out
-   TODO: implement way to auto swap to another key when one is out */
+/* all valid API keys, due to limitations on free accounts, we have created multiple
+keys to swap through if one runs out, simply comment out current one and uncomment
+newer one. if you make your own, insert here as well */
 // export const API_KEY = "0eb27123386c42b19046163250ba48aa";
 export const API_KEY = "59b4fe15ba9b4fec86b5be4313200724";
 // export const API_KEY = "336f05f01b06462b8b7cb4ec5172840f";
+
 const API_URL = "https://api.spoonacular.com/recipes";
 
 export const getRecipes = async (ingredients, filters) => {
@@ -19,18 +21,15 @@ export const getRecipes = async (ingredients, filters) => {
 
   let response = await fetch(url);
   let info = await response.json();
-  console.log("✅ First response:", info);
 
   // Fallback if no results
   if (info.results.length === 0) {
     console.warn("⚠️ No results with full query. Retrying simplified fallback...");
 
     url = `${API_URL}/complexSearch?includeIngredients=${ingredientList}&number=12${cookTimeParam}${dietParam}${intoleranceParam}${mealTypeParam}${cuisineParam}&apiKey=${API_KEY}`;
-    console.log("🧪 Fallback URL:", url);
 
     response = await fetch(url);
     info = await response.json();
-    console.log("✅ Fallback response:", info);
   }
 
   const results = info.results.map(recipe => ({
