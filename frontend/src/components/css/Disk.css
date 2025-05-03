@@ -2,7 +2,7 @@
     width: 1200px;
     height: 500px;
     position: relative;
-    background-color: #d6d1d1;
+    background-color: #878787;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@
     .middle {
         width: 400px;
         height: 180px;
-        background-color: #aea9a9;
+        background-color: #606060;
         border-radius: 50%;
         position: absolute;
     }
