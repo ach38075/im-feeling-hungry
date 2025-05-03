@@ -1,4 +1,4 @@
-## Intro
+## Intro -- I'm Feeling Hungry backend specific README
 
 Run `build_local.sh` to build a docker image and spin it up as a container. Note that `chmod +x build_local.sh` in case you cannot execute it.
 
@@ -58,15 +58,4 @@ The container will map 8080 port to your host machine, then you can play around 
 - `examples`: get access to backend by postman 
 - `cs4050-http.postman_collection.json`: all http APIs for the testing of backend
 
-## Progress Control
-### Done:
-- Auth: user + hash(password) in MongoDB
-- Feed: add/find/del/update a recipe 
-
-### TODO
-Be aware that if you wanna contribute to backend development, there are a few options:
-- create a new filter option
-- think of what data is stored in MongoDB
-- how to fetch data by Google API
-- ...
   
